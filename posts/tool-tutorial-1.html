@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>某某強大開源工具 v2.0 最新版發布與詳細使用教程 - xxx博客</title>
+    <title>某某強大開源工具 v2.0 最新版發布與詳細使用教程 - 夸諾博客</title>
     <!-- 加上這行就能讓瀏覽器書籤列顯示你的專屬 Logo -->
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <style>
@@ -97,8 +97,30 @@
         .right-sidebar { width: 280px; flex-shrink: 0; }
 
         @media (max-width: 1024px) {
+            /* 平板與手機：正文優先，其次推薦欄，最後側邊廣告 */
             .wrapper { flex-direction: column; }
-            .left-sidebar, .right-sidebar { width: 100%; }
+            .main-content { order: 0; width: 100%; }
+            .right-sidebar { order: 1; width: 100%; }
+            .left-sidebar { order: 2; width: 100%; }
+            .main-content { padding: 30px 24px; }
+        }
+
+        @media (max-width: 768px) {
+            /* 窄屏手機：減少正文留白，避免可用寬度過窄 */
+            .main-content { padding: 24px 18px; }
+            h1 { font-size: 24px; line-height: 1.4; overflow-wrap: anywhere; }
+            h2 { font-size: 19px; }
+            p { overflow-wrap: anywhere; }
+            .nav-content { gap: 10px; }
+            .back-btn { padding: 8px 12px; white-space: nowrap; }
+        }
+
+        @media (max-width: 420px) {
+            .nav-content { padding: 0 14px !important; }
+            .nav-content > a:first-child span { font-size: 14px !important; }
+            .back-btn { font-size: 12px; padding: 7px 10px; }
+            .download-btn-group { gap: 10px; }
+            .download-btn-group a { width: 100%; }
         }
 
         .sidebar-card {
@@ -257,7 +279,7 @@
         <!-- 中间正文 -->
         <div class="main-content">
             <h1>某某強大開源工具 v2.0 最新版發布與詳細使用教程</h1>
-            <div class="meta">發布於 2026-10-14 · 作者：xxx · 分類：系統優化工具</div>
+            <div class="meta">發布於 2026-10-14 · 作者：夸諾 · 分類：系統優化工具</div>
 
             <p>大家好，這期影片帶來的這款開源工具近期進行了重大更新。很多粉絲在群裡反饋說不知道具體的安裝和設定步驟，這篇文章我把詳細的圖文教程整理出來供大家參考。</p >
 
