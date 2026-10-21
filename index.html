@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8fafc">
-    <meta name="description" content="xxx博客，分享實用軟體、開源專案與詳細技術教程。">
-    <title>xx博客 - 軟體開源與專案下載中心</title>
+    <meta name="description" content="夸諾博客，分享實用軟體、開源專案與詳細技術教程。">
+    <title>夸诺博客 - 軟體開源與專案下載中心</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         :root {
@@ -357,6 +357,8 @@
         }
 
         @media (max-width: 768px) {
+            /* 手機端隱藏左上角品牌標誌，避免與中央主標題爭搶視線 */
+            .header-brand { display: none !important; }
             header { padding: 38px 18px 32px; }
             header h1 { font-size: 28px; }
             .wrapper { margin: 20px auto; padding: 0 14px; gap: 14px; }
@@ -391,7 +393,7 @@
             </a >
         </div>
 
-        <h1>xxx博客</h1>
+        <h1>夸諾博客</h1>
         <p>分享實用軟體、開源專案與詳細技術教程</p>
         <div class="search-box">
             <span class="search-icon" aria-hidden="true">🔍</span>
@@ -444,11 +446,11 @@
 
             <!-- 教程示例：暂时保留 # 链接，便于录制教程时演示如何替换文章链接 -->
             <article class="post-card" data-category="opensource">
-                <a href="posts/2.html" class="card-overlay-link" aria-label="閱讀文章：敬請期待更多實用軟體分享"></a>
+                <a href="#" class="card-overlay-link" aria-label="閱讀文章：敬請期待更多實用軟體分享"></a>
                 <div class="post-thumb" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="post-content">
                     <div>
-                        <h2 class="post-title"><a href="posts/2.html">敬請期待更多實用軟體分享...</a></h2>
+                        <h2 class="post-title"><a href="#">敬請期待更多實用軟體分享...</a></h2>
                         <div class="post-meta">發布於 2026-10-10</div>
                         <p class="post-snippet">後續會持續更新更多優質開源工具與使用指南，歡迎訂閱頻道並關注本站。</p>
                     </div>
@@ -464,9 +466,9 @@
         <aside class="right-sidebar">
             <div class="sidebar-card">
                 <div class="channel-avatar" role="img" aria-label="夸諾頻道頭像"></div>
-                <h3>📺 關於xxx</h3>
+                <h3>📺 關於夸諾</h3>
                 <p style="font-size: 13px; color: var(--text-muted); margin: 0 0 10px;">
-                    哈囉！我是xxx。本頻道專注於分享各類高效率開源軟體、實用工具及技術乾貨，帶你解鎖更多科技新玩法！
+                    哈囉！我是夸諾。本頻道專注於分享各類高效率開源軟體、實用工具及技術乾貨，帶你解鎖更多科技新玩法！
                 </p>
                 <a href="https://youtube.com/@quanoclass?si=ry2x9HNsD3BKMXff"
                    class="channel-btn" target="_blank" rel="noopener noreferrer">
@@ -487,7 +489,7 @@
     </div>
 
     <footer>
-        &copy; 2026 xxx博客. All Rights Reserved.
+        &copy; 2026 夸诺博客. All Rights Reserved.
     </footer>
 
     <script>
