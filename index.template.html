@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8fafc">
+    <meta name="description" content="夸諾博客，分享實用軟體、開源專案與詳細技術教程。">
+    <title>夸诺博客 - 軟體開源與專案下載中心</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            position: relative;
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)),
+                url('images/blogbackground.avif');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px 20px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            margin: 0 0 20px;
+            color: #cbd5e1;
+            font-size: 15px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 44px 12px 45px;
+            font-size: 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 30px;
+            outline: none;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            backdrop-filter: blur(5px);
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .search-input::placeholder { color: #cbd5e1; }
+
+        .search-input:focus {
+            background: rgba(255,255,255,0.25);
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96,165,250,0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e1;
+            font-size: 15px;
+            pointer-events: none;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            border: 0;
+            border-radius: 50%;
+            background: transparent;
+            color: #e2e8f0;
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .clear-search:hover,
+        .clear-search:focus-visible {
+            background: rgba(255,255,255,0.15);
+            outline: none;
+        }
+
+        .wrapper {
+            max-width: 1300px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+        }
+
+        .left-sidebar { width: 240px; flex-shrink: 0; }
+        .main-content { flex: 1; min-width: 0; }
+        .right-sidebar { width: 280px; flex-shrink: 0; }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .sidebar-card h3 {
+            font-size: 15px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .channel-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 12px;
+            border: 2px solid var(--border);
+            background-image: url('images/avatar.png');
+            background-size: 140%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-list li { margin-bottom: 8px; }
+
+        .category-list button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            color: var(--text-main);
+            border-radius: 6px;
+            font: inherit;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .category-list button:hover,
+        .category-list button.active {
+            background: #f1f5f9;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .category-list button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid rgba(37,99,235,0.35);
+            outline-offset: 2px;
+        }
+
+        .channel-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            text-align: center;
+            background: #ff0000;
+            color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 15px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .channel-btn:hover {
+            background: #cc0000;
+            transform: translateY(-1px);
+        }
+
+        .youtube-icon {
+            display: block;
+            width: 23px;
+            height: 17px;
+            flex: 0 0 auto;
+        }
+
+        .channel-btn:hover { opacity: 0.9; }
+
+        .post-card[hidden] { display: none !important; }
+
+        .post-card {
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-overlay-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .post-thumb {
+            width: 240px;
+            min-height: 160px;
+            background-color: #e2e8f0;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            pointer-events: none;
+        }
+
+        .post-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .post-title {
+            font-size: 18px;
+            margin: 0 0 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .post-title a {
+            color: var(--text-main);
+            text-decoration: none;
+            pointer-events: auto;
+        }
+
+        .post-title a:hover { color: var(--primary); }
+
+        .post-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .post-snippet {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 0 0 12px;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .results-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 0 0 14px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .pagination {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 24px 0 12px;
+        }
+
+        .pagination button {
+            min-width: 38px;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-main);
+            font: inherit;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover:not(:disabled),
+        .pagination button[aria-current="page"] {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .pagination:empty { display: none; }
+
+        .empty-state {
+            display: none;
+            padding: 36px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            background: var(--card-bg);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+        }
+
+        .footer-ad-box {
+            background: var(--card-bg);
+            border: 1px dashed var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0 40px;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 1024px) {
+            .wrapper { flex-direction: column; }
+            .left-sidebar, .right-sidebar { width: 100%; }
+            .left-sidebar { order: 0; }
+            .main-content { order: 1; width: 100%; }
+            .right-sidebar { order: 2; }
+            .category-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 4px 8px;
+            }
+            .category-list li { margin: 0; }
+        }
+
+        @media (max-width: 768px) {
+            /* 手機端隱藏左上角品牌標誌，避免與中央主標題爭搶注意力；桌面端不受影響 */
+            .header-brand { display: none !important; }
+            header { padding: 38px 18px 32px; }
+            header h1 { font-size: 28px; }
+            .wrapper { margin: 20px auto; padding: 0 14px; gap: 14px; }
+            .post-card { flex-direction: column; }
+            .post-thumb { width: 100%; height: 150px; min-height: 150px; }
+            .post-content { padding: 16px; }
+            .post-title { font-size: 17px; }
+            .sidebar-card { padding: 16px; }
+        }
+
+        @media (max-width: 420px) {
+            .category-list { grid-template-columns: 1fr; }
+            .results-summary { align-items: flex-start; flex-direction: column; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- 新增的左上角品牌標誌區（頭像 + 博客名稱） -->
+        <div class="header-brand" style="position: absolute; top: 20px; left: 30px; display: flex; align-items: center; gap: 10px;">
+            <a href=" " style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: white;">
+                <div style="width: 38px; height: 38px; border-radius: 50%; background-image: url('images/avatar.png'); background-size: 140%; background-position: center; background-repeat: no-repeat; border: 2px solid rgba(255,255,255,0.8);"></div>
+                <span style="font-weight: bold; font-size: 16px; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">夸諾博客</span>
+            </a >
+        </div>
+
+        <h1>夸諾博客</h1>
+        <p>分享實用軟體、開源專案與詳細技術教程</p>
+        <div class="search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input
+                type="search"
+                id="searchInput"
+                class="search-input"
+                placeholder="輸入關鍵字搜索文章..."
+                aria-label="搜索文章"
+                autocomplete="off"
+            >
+            <button type="button" class="clear-search" id="clearSearch"
+                aria-label="清除搜尋" title="清除搜尋">×</button>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <aside class="left-sidebar">
+            <div class="sidebar-card">
+                <h3>📂 文章分類</h3>
+                <ul class="category-list" aria-label="文章分類">
+                    <li><button type="button" data-category="all" class="active" aria-pressed="true">🔥 全部文章</button></li>
+                    <li><button type="button" data-category="useful" aria-pressed="false">💻 實用工具</button></li>
+                    <li><button type="button" data-category="network" aria-pressed="false">🌐 網路加速配置</button></li>
+                    <li><button type="button" data-category="opensource" aria-pressed="false">🛠️ 開源專案分享</button></li>
+                    <li><button type="button" data-category="faq" aria-pressed="false">⚙️ 常見問題排錯</button></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content" id="postContainer">
+            <div class="results-summary">
+                <span id="resultsCount" aria-live="polite">正在載入文章…</span>
+                <span id="activeFilterLabel">分類：全部文章</span>
+            </div>
+            <div id="postList"></div>
+            <nav class="pagination" id="pagination" aria-label="文章分頁"></nav>
+            <p class="empty-state" id="emptyState" role="status" aria-live="polite">
+                沒有找到符合條件的文章，請試試其他關鍵字或分類。
+            </p>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-card">
+                <div class="channel-avatar" role="img" aria-label="夸諾頻道頭像"></div>
+                <h3>📺 關於夸諾</h3>
+                <p style="font-size: 13px; color: var(--text-muted); margin: 0 0 10px;">
+                    哈囉！我是夸諾。本頻道專注於分享各類高效率開源軟體、實用工具及技術乾貨，帶你解鎖更多科技新玩法！
+                </p>
+                <a href="https://youtube.com/@quanoclass?si=ry2x9HNsD3BKMXff"
+                   class="channel-btn" target="_blank" rel="noopener noreferrer">
+                    <svg class="youtube-icon" viewBox="0 0 24 17" aria-hidden="true" focusable="false">
+                        <rect x="0" y="0" width="24" height="17" rx="4" fill="currentColor"></rect>
+                        <path d="M10 4.2L16 8.5L10 12.8Z" fill="#ff0000"></path>
+                    </svg>
+                    <span>訂閱 YouTube 頻道</span>
+                </a>
+            </div>
+        </aside>
+    </div>
+
+    <div style="max-width: 1300px; margin: 0 auto; padding: 0 20px;">
+        <div class="footer-ad-box">
+            <span style="color: var(--text-muted); font-size: 13px;">（底部贊助廣告位）</span>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 夸诺博客. All Rights Reserved.
+    </footer>
+
+    <!-- ARTICLE_SHARD_SCRIPTS -->
+    <script>
+    (() => {
+        'use strict';
+
+        const searchInput = document.getElementById('searchInput');
+        const clearSearch = document.getElementById('clearSearch');
+        const postList = document.getElementById('postList');
+        const categoryButtons = Array.from(
+            document.querySelectorAll('.category-list button[data-category]')
+        );
+        const emptyState = document.getElementById('emptyState');
+        const resultsCount = document.getElementById('resultsCount');
+        const activeFilterLabel = document.getElementById('activeFilterLabel');
+        const pagination = document.getElementById('pagination');
+        const PAGE_SIZE = 6;
+
+        const categoryNames = {
+            all: '全部文章',
+            useful: '實用工具',
+            network: '網路加速配置',
+            opensource: '開源專案分享',
+            faq: '常見問題排錯'
+        };
+
+        let articles = [];
+        const articleShards = Array.isArray(window.BLOG_ARTICLE_SHARDS) ? window.BLOG_ARTICLE_SHARDS : [];
+        const allShardArticles = articleShards.flat();
+        let activeCategory = 'all';
+        let currentPage = Math.max(1, Number(new URLSearchParams(location.search).get('page')) || 1);
+
+        function normalizeText(value) {
+            return (value || '').toLocaleLowerCase().trim();
+        }
+
+        function escapeHTML(value) {
+            return String(value ?? '').replace(/[&<>"']/g, char => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[char]);
+        }
+
+        function getFilteredArticles() {
+            const keyword = normalizeText(searchInput.value);
+            return articles.filter(article => {
+                const matchesCategory = activeCategory === 'all' || article.category === activeCategory;
+                const searchable = normalizeText([
+                    article.title, article.snippet, article.date,
+                    categoryNames[article.category] || article.category
+                ].join(' '));
+                return matchesCategory && (!keyword || searchable.includes(keyword));
+            });
+        }
+
+        function makeCard(article) {
+            const title = escapeHTML(article.title);
+            const url = escapeHTML(article.url);
+            const thumbnail = escapeHTML(article.thumbnail || '');
+            const date = escapeHTML(article.date || '');
+            const readTime = escapeHTML(article.readTime || '');
+            const snippet = escapeHTML(article.snippet || '');
+            const category = escapeHTML(article.category || '');
+            return `
+                <article class="post-card" data-category="${category}">
+                    <a href="${url}" class="card-overlay-link" aria-label="${title}"></a>
+                    <div class="post-thumb" style="background-image: url('${thumbnail}');"></div>
+                    <div class="post-content">
+                        <div>
+                            <h2 class="post-title"><a href="${url}">${title}</a></h2>
+                            <div class="post-meta">發布於 ${date} · 閱讀時間${readTime}</div>
+                            <p class="post-snippet">${snippet}</p>
+                        </div>
+                        <span class="read-more">閱讀全文 →</span>
+                    </div>
+                </article>`;
+        }
+
+        function setPageInURL(page) {
+            const url = new URL(location.href);
+            if (page <= 1) url.searchParams.delete('page');
+            else url.searchParams.set('page', String(page));
+            history.replaceState(null, '', url.pathname + url.search + url.hash);
+        }
+
+        function renderPagination(totalPages) {
+            pagination.replaceChildren();
+
+            const addButton = (label, page, disabled = false, current = false) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.textContent = label;
+                button.disabled = disabled;
+                if (current) button.setAttribute('aria-current', 'page');
+                button.addEventListener('click', () => {
+                    currentPage = page;
+                    setPageInURL(currentPage);
+                    render();
+                    postList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                pagination.appendChild(button);
+            };
+
+            addButton('上一頁', currentPage - 1, currentPage <= 1);
+            for (let page = 1; page <= totalPages; page++) {
+                addButton(String(page), page, false, page === currentPage);
+            }
+            addButton('下一頁', currentPage + 1, currentPage >= totalPages);
+        }
+
+        function render() {
+            const filtered = getFilteredArticles();
+            const total = filtered.length;
+            const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+            currentPage = Math.min(Math.max(1, currentPage), totalPages);
+            const start = (currentPage - 1) * PAGE_SIZE;
+            const pageArticles = filtered.slice(start, start + PAGE_SIZE);
+
+            postList.innerHTML = pageArticles.map(makeCard).join('');
+            emptyState.style.display = total === 0 ? 'block' : 'none';
+            resultsCount.textContent = total === 0
+                ? '找到 0 篇文章'
+                : `找到 ${total} 篇文章 · 第 ${currentPage} / ${totalPages} 頁`;
+            activeFilterLabel.textContent = `分類：${categoryNames[activeCategory] || '全部文章'}`;
+            clearSearch.style.display = searchInput.value ? 'block' : 'none';
+            renderPagination(totalPages);
+        }
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                activeCategory = button.dataset.category || 'all';
+                currentPage = 1;
+                setPageInURL(currentPage);
+                categoryButtons.forEach(item => {
+                    const isActive = item === button;
+                    item.classList.toggle('active', isActive);
+                    item.setAttribute('aria-pressed', String(isActive));
+                });
+                render();
+            });
+        });
+
+        searchInput.addEventListener('input', () => {
+            currentPage = 1;
+            setPageInURL(currentPage);
+            render();
+        });
+
+        clearSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            searchInput.focus();
+            currentPage = 1;
+            setPageInURL(currentPage);
+            render();
+        });
+
+        searchInput.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                searchInput.value = '';
+                currentPage = 1;
+                setPageInURL(currentPage);
+                render();
+            }
+        });
+
+        // articles.js 使用普通 script 載入，不依賴 fetch；雙擊 file:// 也能預覽。
+        if (allShardArticles.length > 0) {
+            articles = allShardArticles;
+            render();
+        } else {
+            resultsCount.textContent = '文章目錄載入失敗';
+            emptyState.style.display = 'block';
+            emptyState.textContent = '找不到文章索引資料，請先執行 build.py 生成網站。';
+        }
+    })();
+    </script>
+</body>
+</html>
