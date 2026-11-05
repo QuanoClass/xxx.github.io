@@ -1,0 +1,4010 @@
+<!DOCTYPE html>
+<html dir='ltr' lang='zh-TW' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<title>零成本架站術&#65306;手把手教你用 GitHub Pages 部署個人免費部落格網站</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<!-- Chrome, Firefox OS and Opera -->
+<meta content='#eeeeee' name='theme-color'/>
+<!-- Windows Phone -->
+<meta content='#eeeeee' name='msapplication-navbutton-color'/>
+<meta content='blogger' name='generator'/>
+<link href='https://quano-blog.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='https://quano-blog.blogspot.com/2026/11/github-pages.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="夸诺博客 - 軟體開源與專案下載分享中心 - Atom" href="https://quano-blog.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="夸诺博客 - 軟體開源與專案下載分享中心 - RSS" href="https://quano-blog.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="夸诺博客 - 軟體開源與專案下載分享中心 - Atom" href="https://www.blogger.com/feeds/462586399848290336/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="夸诺博客 - 軟體開源與專案下載分享中心 - Atom" href="https://quano-blog.blogspot.com/feeds/8829513603298570785/comments/default" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/w571-h321/githubpages.png' rel='image_src'/>
+<meta content='https://quano-blog.blogspot.com/2026/11/github-pages.html' property='og:url'/>
+<meta content='零成本架站術：手把手教你用 GitHub Pages 部署個人免費部落格網站' property='og:title'/>
+<meta content=' 作者：夸諾 · 分類：實用工具 想要擁有一個屬於自己的 個人網站 或 技術部落格 ，卻又 不想花錢買網域和主機 嗎？今天這篇教程要來教大家如何利用 GitHub Pages ，輕鬆打造 完全免費、高效且永續運作 的 個人靜態部落格！ 一、 什麼是 GitHub Pages ？ ...' property='og:description'/>
+<meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/w1200-h630-p-k-no-nu/githubpages.png' property='og:image'/>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=pbNhJOJOvefZ2QNPpBgYxMXzsEZZOp6vGjPW8dAwOJrZYhkmxTKWsbladcB190Y2zphj4tHA12D4EbwgSZnDulqPAe1pq6XXQiGCxbZNC-U" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9xdWFuby1ibG9nLmJsb2dzcG90LmNvbS8yMDI2LzExL2dpdGh1Yi1wYWdlcy5odG1s"/><style type='text/css'>@font-face{font-family:'Damion';font-style:normal;font-weight:400;font-display:swap;src:url(//fonts.gstatic.com/s/damion/v15/hv-XlzJ3KEUe_YZkZGw2ATE.woff2)format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}@font-face{font-family:'Damion';font-style:normal;font-weight:400;font-display:swap;src:url(//fonts.gstatic.com/s/damion/v15/hv-XlzJ3KEUe_YZkamw2.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}@font-face{font-family:'Playfair Display';font-style:normal;font-weight:900;font-display:swap;src:url(//fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsunDTbtPY_Q.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}@font-face{font-family:'Playfair Display';font-style:normal;font-weight:900;font-display:swap;src:url(//fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsunDYbtPY_Q.woff2)format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}@font-face{font-family:'Playfair Display';font-style:normal;font-weight:900;font-display:swap;src:url(//fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsunDZbtPY_Q.woff2)format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}@font-face{font-family:'Playfair Display';font-style:normal;font-weight:900;font-display:swap;src:url(//fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKfsunDXbtM.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuAX-k2Qn.woff2)format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuAz-k2Qn.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuAT-k2Qn.woff2)format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuAv-k2Qn.woff2)format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuHT-k2Qn.woff2)format('woff2');unicode-range:U+0302-0303,U+0305,U+0307-0308,U+0310,U+0312,U+0315,U+031A,U+0326-0327,U+032C,U+032F-0330,U+0332-0333,U+0338,U+033A,U+0346,U+034D,U+0391-03A1,U+03A3-03A9,U+03B1-03C9,U+03D1,U+03D5-03D6,U+03F0-03F1,U+03F4-03F5,U+2016-2017,U+2034-2038,U+203C,U+2040,U+2043,U+2047,U+2050,U+2057,U+205F,U+2070-2071,U+2074-209F,U+20D0-20DC,U+20E1,U+20E5-20EF,U+2100-2112,U+2114-2115,U+2117-2121,U+2123-214F,U+2190,U+2192,U+2194-21AE,U+21B0-21E5,U+21F1-21F2,U+21F4-2211,U+2213-2214,U+2216-22FF,U+2308-230B,U+2310,U+2319,U+231C-2321,U+2336-237A,U+237C,U+2395,U+239B-23B7,U+23D0,U+23DC-23E1,U+2474-2475,U+25AF,U+25B3,U+25B7,U+25BD,U+25C1,U+25CA,U+25CC,U+25FB,U+266D-266F,U+27C0-27FF,U+2900-2AFF,U+2B0E-2B11,U+2B30-2B4C,U+2BFE,U+3030,U+FF5B,U+FF5D,U+1D400-1D7FF,U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuGb-k2Qn.woff2)format('woff2');unicode-range:U+0001-000C,U+000E-001F,U+007F-009F,U+20DD-20E0,U+20E2-20E4,U+2150-218F,U+2190,U+2192,U+2194-2199,U+21AF,U+21E6-21F0,U+21F3,U+2218-2219,U+2299,U+22C4-22C6,U+2300-243F,U+2440-244A,U+2460-24FF,U+25A0-27BF,U+2800-28FF,U+2921-2922,U+2981,U+29BF,U+29EB,U+2B00-2BFF,U+4DC0-4DFF,U+FFF9-FFFB,U+10140-1018E,U+10190-1019C,U+101A0,U+101D0-101FD,U+102E0-102FB,U+10E60-10E7E,U+1D2C0-1D2D3,U+1D2E0-1D37F,U+1F000-1F0FF,U+1F100-1F1AE,U+1F1E6-1F1FF,U+1F30D-1F30F,U+1F315,U+1F31C,U+1F31E,U+1F320-1F32C,U+1F336,U+1F378,U+1F37D,U+1F382,U+1F393-1F39F,U+1F3A7-1F3A8,U+1F3AC-1F3AF,U+1F3C2,U+1F3C4-1F3C6,U+1F3CA-1F3CE,U+1F3D4-1F3E0,U+1F3ED,U+1F3F1-1F3F3,U+1F3F5-1F3F7,U+1F408,U+1F415,U+1F41F,U+1F426,U+1F43F,U+1F441-1F442,U+1F444,U+1F446-1F449,U+1F44C-1F44E,U+1F453,U+1F46A,U+1F47D,U+1F4A3,U+1F4B0,U+1F4B3,U+1F4B9,U+1F4BB,U+1F4BF,U+1F4C8-1F4CB,U+1F4D6,U+1F4DA,U+1F4DF,U+1F4E3-1F4E6,U+1F4EA-1F4ED,U+1F4F7,U+1F4F9-1F4FB,U+1F4FD-1F4FE,U+1F503,U+1F507-1F50B,U+1F50D,U+1F512-1F513,U+1F53E-1F54A,U+1F54F-1F5FA,U+1F610,U+1F650-1F67F,U+1F687,U+1F68D,U+1F691,U+1F694,U+1F698,U+1F6AD,U+1F6B2,U+1F6B9-1F6BA,U+1F6BC,U+1F6C6-1F6CF,U+1F6D3-1F6D7,U+1F6E0-1F6EA,U+1F6F0-1F6F3,U+1F6F7-1F6FC,U+1F700-1F80B,U+1F810-1F847,U+1F850-1F859,U+1F860-1F887,U+1F890-1F8AD,U+1F8B0-1F8BB,U+1F8C0-1F8C1,U+1F8D0-1F8D8,U+1F900-1F90B,U+1F93B,U+1F946,U+1F984,U+1F996,U+1F9E9,U+1FA00-1FA6F,U+1FA70-1FA7C,U+1FA80-1FAC6,U+1FAC8,U+1FACC-1FADD,U+1FADF-1FAEB,U+1FAEF-1FAFA,U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuAf-k2Qn.woff2)format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuAb-k2Qn.woff2)format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:italic;font-weight:300;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFOKCnqEu92Fr1Mu53ZEC9_Vu3r1gIhOszmOClHrs6ljXfMMLt_QuAj-kw.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2)format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2)format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2)format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2)format('woff2');unicode-range:U+0302-0303,U+0305,U+0307-0308,U+0310,U+0312,U+0315,U+031A,U+0326-0327,U+032C,U+032F-0330,U+0332-0333,U+0338,U+033A,U+0346,U+034D,U+0391-03A1,U+03A3-03A9,U+03B1-03C9,U+03D1,U+03D5-03D6,U+03F0-03F1,U+03F4-03F5,U+2016-2017,U+2034-2038,U+203C,U+2040,U+2043,U+2047,U+2050,U+2057,U+205F,U+2070-2071,U+2074-209F,U+20D0-20DC,U+20E1,U+20E5-20EF,U+2100-2112,U+2114-2115,U+2117-2121,U+2123-214F,U+2190,U+2192,U+2194-21AE,U+21B0-21E5,U+21F1-21F2,U+21F4-2211,U+2213-2214,U+2216-22FF,U+2308-230B,U+2310,U+2319,U+231C-2321,U+2336-237A,U+237C,U+2395,U+239B-23B7,U+23D0,U+23DC-23E1,U+2474-2475,U+25AF,U+25B3,U+25B7,U+25BD,U+25C1,U+25CA,U+25CC,U+25FB,U+266D-266F,U+27C0-27FF,U+2900-2AFF,U+2B0E-2B11,U+2B30-2B4C,U+2BFE,U+3030,U+FF5B,U+FF5D,U+1D400-1D7FF,U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2)format('woff2');unicode-range:U+0001-000C,U+000E-001F,U+007F-009F,U+20DD-20E0,U+20E2-20E4,U+2150-218F,U+2190,U+2192,U+2194-2199,U+21AF,U+21E6-21F0,U+21F3,U+2218-2219,U+2299,U+22C4-22C6,U+2300-243F,U+2440-244A,U+2460-24FF,U+25A0-27BF,U+2800-28FF,U+2921-2922,U+2981,U+29BF,U+29EB,U+2B00-2BFF,U+4DC0-4DFF,U+FFF9-FFFB,U+10140-1018E,U+10190-1019C,U+101A0,U+101D0-101FD,U+102E0-102FB,U+10E60-10E7E,U+1D2C0-1D2D3,U+1D2E0-1D37F,U+1F000-1F0FF,U+1F100-1F1AE,U+1F1E6-1F1FF,U+1F30D-1F30F,U+1F315,U+1F31C,U+1F31E,U+1F320-1F32C,U+1F336,U+1F378,U+1F37D,U+1F382,U+1F393-1F39F,U+1F3A7-1F3A8,U+1F3AC-1F3AF,U+1F3C2,U+1F3C4-1F3C6,U+1F3CA-1F3CE,U+1F3D4-1F3E0,U+1F3ED,U+1F3F1-1F3F3,U+1F3F5-1F3F7,U+1F408,U+1F415,U+1F41F,U+1F426,U+1F43F,U+1F441-1F442,U+1F444,U+1F446-1F449,U+1F44C-1F44E,U+1F453,U+1F46A,U+1F47D,U+1F4A3,U+1F4B0,U+1F4B3,U+1F4B9,U+1F4BB,U+1F4BF,U+1F4C8-1F4CB,U+1F4D6,U+1F4DA,U+1F4DF,U+1F4E3-1F4E6,U+1F4EA-1F4ED,U+1F4F7,U+1F4F9-1F4FB,U+1F4FD-1F4FE,U+1F503,U+1F507-1F50B,U+1F50D,U+1F512-1F513,U+1F53E-1F54A,U+1F54F-1F5FA,U+1F610,U+1F650-1F67F,U+1F687,U+1F68D,U+1F691,U+1F694,U+1F698,U+1F6AD,U+1F6B2,U+1F6B9-1F6BA,U+1F6BC,U+1F6C6-1F6CF,U+1F6D3-1F6D7,U+1F6E0-1F6EA,U+1F6F0-1F6F3,U+1F6F7-1F6FC,U+1F700-1F80B,U+1F810-1F847,U+1F850-1F859,U+1F860-1F887,U+1F890-1F8AD,U+1F8B0-1F8BB,U+1F8C0-1F8C1,U+1F8D0-1F8D8,U+1F900-1F90B,U+1F93B,U+1F946,U+1F984,U+1F996,U+1F9E9,U+1FA00-1FA6F,U+1FA70-1FA7C,U+1FA80-1FAC6,U+1FAC8,U+1FACC-1FADD,U+1FADF-1FAEB,U+1FAEF-1FAFA,U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2)format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2)format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3GUBGEe.woff2)format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3iUBGEe.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3CUBGEe.woff2)format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3-UBGEe.woff2)format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMawCUBGEe.woff2)format('woff2');unicode-range:U+0302-0303,U+0305,U+0307-0308,U+0310,U+0312,U+0315,U+031A,U+0326-0327,U+032C,U+032F-0330,U+0332-0333,U+0338,U+033A,U+0346,U+034D,U+0391-03A1,U+03A3-03A9,U+03B1-03C9,U+03D1,U+03D5-03D6,U+03F0-03F1,U+03F4-03F5,U+2016-2017,U+2034-2038,U+203C,U+2040,U+2043,U+2047,U+2050,U+2057,U+205F,U+2070-2071,U+2074-209F,U+20D0-20DC,U+20E1,U+20E5-20EF,U+2100-2112,U+2114-2115,U+2117-2121,U+2123-214F,U+2190,U+2192,U+2194-21AE,U+21B0-21E5,U+21F1-21F2,U+21F4-2211,U+2213-2214,U+2216-22FF,U+2308-230B,U+2310,U+2319,U+231C-2321,U+2336-237A,U+237C,U+2395,U+239B-23B7,U+23D0,U+23DC-23E1,U+2474-2475,U+25AF,U+25B3,U+25B7,U+25BD,U+25C1,U+25CA,U+25CC,U+25FB,U+266D-266F,U+27C0-27FF,U+2900-2AFF,U+2B0E-2B11,U+2B30-2B4C,U+2BFE,U+3030,U+FF5B,U+FF5D,U+1D400-1D7FF,U+1EE00-1EEFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMaxKUBGEe.woff2)format('woff2');unicode-range:U+0001-000C,U+000E-001F,U+007F-009F,U+20DD-20E0,U+20E2-20E4,U+2150-218F,U+2190,U+2192,U+2194-2199,U+21AF,U+21E6-21F0,U+21F3,U+2218-2219,U+2299,U+22C4-22C6,U+2300-243F,U+2440-244A,U+2460-24FF,U+25A0-27BF,U+2800-28FF,U+2921-2922,U+2981,U+29BF,U+29EB,U+2B00-2BFF,U+4DC0-4DFF,U+FFF9-FFFB,U+10140-1018E,U+10190-1019C,U+101A0,U+101D0-101FD,U+102E0-102FB,U+10E60-10E7E,U+1D2C0-1D2D3,U+1D2E0-1D37F,U+1F000-1F0FF,U+1F100-1F1AE,U+1F1E6-1F1FF,U+1F30D-1F30F,U+1F315,U+1F31C,U+1F31E,U+1F320-1F32C,U+1F336,U+1F378,U+1F37D,U+1F382,U+1F393-1F39F,U+1F3A7-1F3A8,U+1F3AC-1F3AF,U+1F3C2,U+1F3C4-1F3C6,U+1F3CA-1F3CE,U+1F3D4-1F3E0,U+1F3ED,U+1F3F1-1F3F3,U+1F3F5-1F3F7,U+1F408,U+1F415,U+1F41F,U+1F426,U+1F43F,U+1F441-1F442,U+1F444,U+1F446-1F449,U+1F44C-1F44E,U+1F453,U+1F46A,U+1F47D,U+1F4A3,U+1F4B0,U+1F4B3,U+1F4B9,U+1F4BB,U+1F4BF,U+1F4C8-1F4CB,U+1F4D6,U+1F4DA,U+1F4DF,U+1F4E3-1F4E6,U+1F4EA-1F4ED,U+1F4F7,U+1F4F9-1F4FB,U+1F4FD-1F4FE,U+1F503,U+1F507-1F50B,U+1F50D,U+1F512-1F513,U+1F53E-1F54A,U+1F54F-1F5FA,U+1F610,U+1F650-1F67F,U+1F687,U+1F68D,U+1F691,U+1F694,U+1F698,U+1F6AD,U+1F6B2,U+1F6B9-1F6BA,U+1F6BC,U+1F6C6-1F6CF,U+1F6D3-1F6D7,U+1F6E0-1F6EA,U+1F6F0-1F6F3,U+1F6F7-1F6FC,U+1F700-1F80B,U+1F810-1F847,U+1F850-1F859,U+1F860-1F887,U+1F890-1F8AD,U+1F8B0-1F8BB,U+1F8C0-1F8C1,U+1F8D0-1F8D8,U+1F900-1F90B,U+1F93B,U+1F946,U+1F984,U+1F996,U+1F9E9,U+1FA00-1FA6F,U+1FA70-1FA7C,U+1FA80-1FAC6,U+1FAC8,U+1FACC-1FADD,U+1FADF-1FAEB,U+1FAEF-1FAFA,U+1FB00-1FBFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3OUBGEe.woff2)format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3KUBGEe.woff2)format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-stretch:100%;font-display:swap;src:url(//fonts.gstatic.com/s/roboto/v51/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}</style>
+<style id='page-skin-1' type='text/css'><!--
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+/*!************************************************
+* Blogger Template Style
+* Name: Contempo
+**************************************************/
+body{
+overflow-wrap:break-word;
+word-break:break-word;
+word-wrap:break-word
+}
+.hidden{
+display:none
+}
+.invisible{
+visibility:hidden
+}
+.container::after,.float-container::after{
+clear:both;
+content:"";
+display:table
+}
+.clearboth{
+clear:both
+}
+#comments .comment .comment-actions,.subscribe-popup .FollowByEmail .follow-by-email-submit,.widget.Profile .profile-link,.widget.Profile .profile-link.visit-profile{
+background:0 0;
+border:0;
+box-shadow:none;
+color:#2196f3;
+cursor:pointer;
+font-size:14px;
+font-weight:700;
+outline:0;
+text-decoration:none;
+text-transform:uppercase;
+width:auto
+}
+.dim-overlay{
+background-color:rgba(0,0,0,.54);
+height:100vh;
+left:0;
+position:fixed;
+top:0;
+width:100%
+}
+#sharing-dim-overlay{
+background-color:transparent
+}
+input::-ms-clear{
+display:none
+}
+.blogger-logo,.svg-icon-24.blogger-logo{
+fill:#ff9800;
+opacity:1
+}
+.loading-spinner-large{
+-webkit-animation:mspin-rotate 1.568s infinite linear;
+animation:mspin-rotate 1.568s infinite linear;
+height:48px;
+overflow:hidden;
+position:absolute;
+width:48px;
+z-index:200
+}
+.loading-spinner-large>div{
+-webkit-animation:mspin-revrot 5332ms infinite steps(4);
+animation:mspin-revrot 5332ms infinite steps(4)
+}
+.loading-spinner-large>div>div{
+-webkit-animation:mspin-singlecolor-large-film 1333ms infinite steps(81);
+animation:mspin-singlecolor-large-film 1333ms infinite steps(81);
+background-size:100%;
+height:48px;
+width:3888px
+}
+.mspin-black-large>div>div,.mspin-grey_54-large>div>div{
+background-image:url(https://www.blogblog.com/indie/mspin_black_large.svg)
+}
+.mspin-white-large>div>div{
+background-image:url(https://www.blogblog.com/indie/mspin_white_large.svg)
+}
+.mspin-grey_54-large{
+opacity:.54
+}
+@-webkit-keyframes mspin-singlecolor-large-film{
+from{
+-webkit-transform:translateX(0);
+transform:translateX(0)
+}
+to{
+-webkit-transform:translateX(-3888px);
+transform:translateX(-3888px)
+}
+}
+@keyframes mspin-singlecolor-large-film{
+from{
+-webkit-transform:translateX(0);
+transform:translateX(0)
+}
+to{
+-webkit-transform:translateX(-3888px);
+transform:translateX(-3888px)
+}
+}
+@-webkit-keyframes mspin-rotate{
+from{
+-webkit-transform:rotate(0);
+transform:rotate(0)
+}
+to{
+-webkit-transform:rotate(360deg);
+transform:rotate(360deg)
+}
+}
+@keyframes mspin-rotate{
+from{
+-webkit-transform:rotate(0);
+transform:rotate(0)
+}
+to{
+-webkit-transform:rotate(360deg);
+transform:rotate(360deg)
+}
+}
+@-webkit-keyframes mspin-revrot{
+from{
+-webkit-transform:rotate(0);
+transform:rotate(0)
+}
+to{
+-webkit-transform:rotate(-360deg);
+transform:rotate(-360deg)
+}
+}
+@keyframes mspin-revrot{
+from{
+-webkit-transform:rotate(0);
+transform:rotate(0)
+}
+to{
+-webkit-transform:rotate(-360deg);
+transform:rotate(-360deg)
+}
+}
+.skip-navigation{
+background-color:#fff;
+box-sizing:border-box;
+color:#000;
+display:block;
+height:0;
+left:0;
+line-height:50px;
+overflow:hidden;
+padding-top:0;
+position:fixed;
+text-align:center;
+top:0;
+-webkit-transition:box-shadow .3s,height .3s,padding-top .3s;
+transition:box-shadow .3s,height .3s,padding-top .3s;
+width:100%;
+z-index:900
+}
+.skip-navigation:focus{
+box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+height:50px
+}
+#main{
+outline:0
+}
+.main-heading{
+position:absolute;
+clip:rect(1px,1px,1px,1px);
+padding:0;
+border:0;
+height:1px;
+width:1px;
+overflow:hidden
+}
+.Attribution{
+margin-top:1em;
+text-align:center
+}
+.Attribution .blogger img,.Attribution .blogger svg{
+vertical-align:bottom
+}
+.Attribution .blogger img{
+margin-right:.5em
+}
+.Attribution div{
+line-height:24px;
+margin-top:.5em
+}
+.Attribution .copyright,.Attribution .image-attribution{
+font-size:.7em;
+margin-top:1.5em
+}
+.BLOG_mobile_video_class{
+display:none
+}
+.bg-photo{
+background-attachment:scroll!important
+}
+body .CSS_LIGHTBOX{
+z-index:900
+}
+.extendable .show-less,.extendable .show-more{
+border-color:#2196f3;
+color:#2196f3;
+margin-top:8px
+}
+.extendable .show-less.hidden,.extendable .show-more.hidden{
+display:none
+}
+.inline-ad{
+display:none;
+max-width:100%;
+overflow:hidden
+}
+.adsbygoogle{
+display:block
+}
+#cookieChoiceInfo{
+bottom:0;
+top:auto
+}
+iframe.b-hbp-video{
+border:0
+}
+.post-body img{
+max-width:100%
+}
+.post-body iframe{
+max-width:100%
+}
+.post-body a[imageanchor="1"]{
+display:inline-block
+}
+.byline{
+margin-right:1em
+}
+.byline:last-child{
+margin-right:0
+}
+.link-copied-dialog{
+max-width:520px;
+outline:0
+}
+.link-copied-dialog .modal-dialog-buttons{
+margin-top:8px
+}
+.link-copied-dialog .goog-buttonset-default{
+background:0 0;
+border:0
+}
+.link-copied-dialog .goog-buttonset-default:focus{
+outline:0
+}
+.paging-control-container{
+margin-bottom:16px
+}
+.paging-control-container .paging-control{
+display:inline-block
+}
+.paging-control-container .comment-range-text::after,.paging-control-container .paging-control{
+color:#2196f3
+}
+.paging-control-container .comment-range-text,.paging-control-container .paging-control{
+margin-right:8px
+}
+.paging-control-container .comment-range-text::after,.paging-control-container .paging-control::after{
+content:"\b7";
+cursor:default;
+padding-left:8px;
+pointer-events:none
+}
+.paging-control-container .comment-range-text:last-child::after,.paging-control-container .paging-control:last-child::after{
+content:none
+}
+.byline.reactions iframe{
+height:20px
+}
+.b-notification{
+color:#000;
+background-color:#fff;
+border-bottom:solid 1px #000;
+box-sizing:border-box;
+padding:16px 32px;
+text-align:center
+}
+.b-notification.visible{
+-webkit-transition:margin-top .3s cubic-bezier(.4,0,.2,1);
+transition:margin-top .3s cubic-bezier(.4,0,.2,1)
+}
+.b-notification.invisible{
+position:absolute
+}
+.b-notification-close{
+position:absolute;
+right:8px;
+top:8px
+}
+.no-posts-message{
+line-height:40px;
+text-align:center
+}
+@media screen and (max-width:800px){
+body.item-view .post-body a[imageanchor="1"][style*="float: left;"],body.item-view .post-body a[imageanchor="1"][style*="float: right;"]{
+float:none!important;
+clear:none!important
+}
+body.item-view .post-body a[imageanchor="1"] img{
+display:block;
+height:auto;
+margin:0 auto
+}
+body.item-view .post-body>.separator:first-child>a[imageanchor="1"]:first-child{
+margin-top:20px
+}
+.post-body a[imageanchor]{
+display:block
+}
+body.item-view .post-body a[imageanchor="1"]{
+margin-left:0!important;
+margin-right:0!important
+}
+body.item-view .post-body a[imageanchor="1"]+a[imageanchor="1"]{
+margin-top:16px
+}
+}
+.item-control{
+display:none
+}
+#comments{
+border-top:1px dashed rgba(0,0,0,.54);
+margin-top:20px;
+padding:20px
+}
+#comments .comment-thread ol{
+margin:0;
+padding-left:0;
+padding-left:0
+}
+#comments .comment .comment-replybox-single,#comments .comment-thread .comment-replies{
+margin-left:60px
+}
+#comments .comment-thread .thread-count{
+display:none
+}
+#comments .comment{
+list-style-type:none;
+padding:0 0 30px;
+position:relative
+}
+#comments .comment .comment{
+padding-bottom:8px
+}
+.comment .avatar-image-container{
+position:absolute
+}
+.comment .avatar-image-container img{
+border-radius:50%
+}
+.avatar-image-container svg,.comment .avatar-image-container .avatar-icon{
+border-radius:50%;
+border:solid 1px #707070;
+box-sizing:border-box;
+fill:#707070;
+height:35px;
+margin:0;
+padding:7px;
+width:35px
+}
+.comment .comment-block{
+margin-top:10px;
+margin-left:60px;
+padding-bottom:0
+}
+#comments .comment-author-header-wrapper{
+margin-left:40px
+}
+#comments .comment .thread-expanded .comment-block{
+padding-bottom:20px
+}
+#comments .comment .comment-header .user,#comments .comment .comment-header .user a{
+color:#212121;
+font-style:normal;
+font-weight:700
+}
+#comments .comment .comment-actions{
+bottom:0;
+margin-bottom:15px;
+position:absolute
+}
+#comments .comment .comment-actions>*{
+margin-right:8px
+}
+#comments .comment .comment-header .datetime{
+bottom:0;
+color:rgba(33,33,33,.54);
+display:inline-block;
+font-size:13px;
+font-style:italic;
+margin-left:8px
+}
+#comments .comment .comment-footer .comment-timestamp a,#comments .comment .comment-header .datetime a{
+color:rgba(33,33,33,.54)
+}
+#comments .comment .comment-content,.comment .comment-body{
+margin-top:12px;
+word-break:break-word
+}
+.comment-body{
+margin-bottom:12px
+}
+#comments.embed[data-num-comments="0"]{
+border:0;
+margin-top:0;
+padding-top:0
+}
+#comments.embed[data-num-comments="0"] #comment-post-message,#comments.embed[data-num-comments="0"] div.comment-form>p,#comments.embed[data-num-comments="0"] p.comment-footer{
+display:none
+}
+#comment-editor-src{
+display:none
+}
+.comments .comments-content .loadmore.loaded{
+max-height:0;
+opacity:0;
+overflow:hidden
+}
+.extendable .remaining-items{
+height:0;
+overflow:hidden;
+-webkit-transition:height .3s cubic-bezier(.4,0,.2,1);
+transition:height .3s cubic-bezier(.4,0,.2,1)
+}
+.extendable .remaining-items.expanded{
+height:auto
+}
+.svg-icon-24,.svg-icon-24-button{
+cursor:pointer;
+height:24px;
+width:24px;
+min-width:24px
+}
+.touch-icon{
+margin:-12px;
+padding:12px
+}
+.touch-icon:active,.touch-icon:focus{
+background-color:rgba(153,153,153,.4);
+border-radius:50%
+}
+svg:not(:root).touch-icon{
+overflow:visible
+}
+html[dir=rtl] .rtl-reversible-icon{
+-webkit-transform:scaleX(-1);
+-ms-transform:scaleX(-1);
+transform:scaleX(-1)
+}
+.svg-icon-24-button,.touch-icon-button{
+background:0 0;
+border:0;
+margin:0;
+outline:0;
+padding:0
+}
+.touch-icon-button .touch-icon:active,.touch-icon-button .touch-icon:focus{
+background-color:transparent
+}
+.touch-icon-button:active .touch-icon,.touch-icon-button:focus .touch-icon{
+background-color:rgba(153,153,153,.4);
+border-radius:50%
+}
+.Profile .default-avatar-wrapper .avatar-icon{
+border-radius:50%;
+border:solid 1px #707070;
+box-sizing:border-box;
+fill:#707070;
+margin:0
+}
+.Profile .individual .default-avatar-wrapper .avatar-icon{
+padding:25px
+}
+.Profile .individual .avatar-icon,.Profile .individual .profile-img{
+height:120px;
+width:120px
+}
+.Profile .team .default-avatar-wrapper .avatar-icon{
+padding:8px
+}
+.Profile .team .avatar-icon,.Profile .team .default-avatar-wrapper,.Profile .team .profile-img{
+height:40px;
+width:40px
+}
+.snippet-container{
+margin:0;
+position:relative;
+overflow:hidden
+}
+.snippet-fade{
+bottom:0;
+box-sizing:border-box;
+position:absolute;
+width:96px
+}
+.snippet-fade{
+right:0
+}
+.snippet-fade:after{
+content:"\2026"
+}
+.snippet-fade:after{
+float:right
+}
+.post-bottom{
+-webkit-box-align:center;
+-webkit-align-items:center;
+-ms-flex-align:center;
+align-items:center;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-wrap:wrap;
+-ms-flex-wrap:wrap;
+flex-wrap:wrap
+}
+.post-footer{
+-webkit-box-flex:1;
+-webkit-flex:1 1 auto;
+-ms-flex:1 1 auto;
+flex:1 1 auto;
+-webkit-flex-wrap:wrap;
+-ms-flex-wrap:wrap;
+flex-wrap:wrap;
+-webkit-box-ordinal-group:2;
+-webkit-order:1;
+-ms-flex-order:1;
+order:1
+}
+.post-footer>*{
+-webkit-box-flex:0;
+-webkit-flex:0 1 auto;
+-ms-flex:0 1 auto;
+flex:0 1 auto
+}
+.post-footer .byline:last-child{
+margin-right:1em
+}
+.jump-link{
+-webkit-box-flex:0;
+-webkit-flex:0 0 auto;
+-ms-flex:0 0 auto;
+flex:0 0 auto;
+-webkit-box-ordinal-group:3;
+-webkit-order:2;
+-ms-flex-order:2;
+order:2
+}
+.centered-top-container.sticky{
+left:0;
+position:fixed;
+right:0;
+top:0;
+width:auto;
+z-index:50;
+-webkit-transition-property:opacity,-webkit-transform;
+transition-property:opacity,-webkit-transform;
+transition-property:transform,opacity;
+transition-property:transform,opacity,-webkit-transform;
+-webkit-transition-duration:.2s;
+transition-duration:.2s;
+-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);
+transition-timing-function:cubic-bezier(.4,0,.2,1)
+}
+.centered-top-placeholder{
+display:none
+}
+.collapsed-header .centered-top-placeholder{
+display:block
+}
+.centered-top-container .Header .replaced h1,.centered-top-placeholder .Header .replaced h1{
+display:none
+}
+.centered-top-container.sticky .Header .replaced h1{
+display:block
+}
+.centered-top-container.sticky .Header .header-widget{
+background:0 0
+}
+.centered-top-container.sticky .Header .header-image-wrapper{
+display:none
+}
+.centered-top-container img,.centered-top-placeholder img{
+max-width:100%
+}
+.collapsible{
+-webkit-transition:height .3s cubic-bezier(.4,0,.2,1);
+transition:height .3s cubic-bezier(.4,0,.2,1)
+}
+.collapsible,.collapsible>summary{
+display:block;
+overflow:hidden
+}
+.collapsible>:not(summary){
+display:none
+}
+.collapsible[open]>:not(summary){
+display:block
+}
+.collapsible:focus,.collapsible>summary:focus{
+outline:0
+}
+.collapsible>summary{
+cursor:pointer;
+display:block;
+padding:0
+}
+.collapsible:focus>summary,.collapsible>summary:focus{
+background-color:transparent
+}
+.collapsible>summary::-webkit-details-marker{
+display:none
+}
+.collapsible-title{
+-webkit-box-align:center;
+-webkit-align-items:center;
+-ms-flex-align:center;
+align-items:center;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex
+}
+.collapsible-title .title{
+-webkit-box-flex:1;
+-webkit-flex:1 1 auto;
+-ms-flex:1 1 auto;
+flex:1 1 auto;
+-webkit-box-ordinal-group:1;
+-webkit-order:0;
+-ms-flex-order:0;
+order:0;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap
+}
+.collapsible-title .chevron-down,.collapsible[open] .collapsible-title .chevron-up{
+display:block
+}
+.collapsible-title .chevron-up,.collapsible[open] .collapsible-title .chevron-down{
+display:none
+}
+.flat-button{
+cursor:pointer;
+display:inline-block;
+font-weight:700;
+text-transform:uppercase;
+border-radius:2px;
+padding:8px;
+margin:-8px
+}
+.flat-icon-button{
+background:0 0;
+border:0;
+margin:0;
+outline:0;
+padding:0;
+margin:-12px;
+padding:12px;
+cursor:pointer;
+box-sizing:content-box;
+display:inline-block;
+line-height:0
+}
+.flat-icon-button,.flat-icon-button .splash-wrapper{
+border-radius:50%
+}
+.flat-icon-button .splash.animate{
+-webkit-animation-duration:.3s;
+animation-duration:.3s
+}
+.overflowable-container{
+max-height:46px;
+overflow:hidden;
+position:relative
+}
+.overflow-button{
+cursor:pointer
+}
+#overflowable-dim-overlay{
+background:0 0
+}
+.overflow-popup{
+box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+background-color:#ffffff;
+left:0;
+max-width:calc(100% - 32px);
+position:absolute;
+top:0;
+visibility:hidden;
+z-index:101
+}
+.overflow-popup ul{
+list-style:none
+}
+.overflow-popup .tabs li,.overflow-popup li{
+display:block;
+height:auto
+}
+.overflow-popup .tabs li{
+padding-left:0;
+padding-right:0
+}
+.overflow-button.hidden,.overflow-popup .tabs li.hidden,.overflow-popup li.hidden{
+display:none
+}
+.pill-button{
+background:0 0;
+border:1px solid;
+border-radius:12px;
+cursor:pointer;
+display:inline-block;
+padding:4px 16px;
+text-transform:uppercase
+}
+.ripple{
+position:relative
+}
+.ripple>*{
+z-index:1
+}
+.splash-wrapper{
+bottom:0;
+left:0;
+overflow:hidden;
+pointer-events:none;
+position:absolute;
+right:0;
+top:0;
+z-index:0
+}
+.splash{
+background:#ccc;
+border-radius:100%;
+display:block;
+opacity:.6;
+position:absolute;
+-webkit-transform:scale(0);
+-ms-transform:scale(0);
+transform:scale(0)
+}
+.splash.animate{
+-webkit-animation:ripple-effect .4s linear;
+animation:ripple-effect .4s linear
+}
+@-webkit-keyframes ripple-effect{
+100%{
+opacity:0;
+-webkit-transform:scale(2.5);
+transform:scale(2.5)
+}
+}
+@keyframes ripple-effect{
+100%{
+opacity:0;
+-webkit-transform:scale(2.5);
+transform:scale(2.5)
+}
+}
+.search{
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+line-height:24px;
+width:24px
+}
+.search.focused{
+width:100%
+}
+.search.focused .section{
+width:100%
+}
+.search form{
+z-index:101
+}
+.search h3{
+display:none
+}
+.search form{
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-flex:1;
+-webkit-flex:1 0 0;
+-ms-flex:1 0 0px;
+flex:1 0 0;
+border-bottom:solid 1px transparent;
+padding-bottom:8px
+}
+.search form>*{
+display:none
+}
+.search.focused form>*{
+display:block
+}
+.search .search-input label{
+display:none
+}
+.centered-top-placeholder.cloned .search form{
+z-index:30
+}
+.search.focused form{
+border-color:#ffffff;
+position:relative;
+width:auto
+}
+.collapsed-header .centered-top-container .search.focused form{
+border-bottom-color:transparent
+}
+.search-expand{
+-webkit-box-flex:0;
+-webkit-flex:0 0 auto;
+-ms-flex:0 0 auto;
+flex:0 0 auto
+}
+.search-expand-text{
+display:none
+}
+.search-close{
+display:inline;
+vertical-align:middle
+}
+.search-input{
+-webkit-box-flex:1;
+-webkit-flex:1 0 1px;
+-ms-flex:1 0 1px;
+flex:1 0 1px
+}
+.search-input input{
+background:0 0;
+border:0;
+box-sizing:border-box;
+color:#ffffff;
+display:inline-block;
+outline:0;
+width:calc(100% - 48px)
+}
+.search-input input.no-cursor{
+color:transparent;
+text-shadow:0 0 0 #ffffff
+}
+.collapsed-header .centered-top-container .search-action,.collapsed-header .centered-top-container .search-input input{
+color:#212121
+}
+.collapsed-header .centered-top-container .search-input input.no-cursor{
+color:transparent;
+text-shadow:0 0 0 #212121
+}
+.collapsed-header .centered-top-container .search-input input.no-cursor:focus,.search-input input.no-cursor:focus{
+outline:0
+}
+.search-focused>*{
+visibility:hidden
+}
+.search-focused .search,.search-focused .search-icon{
+visibility:visible
+}
+.search.focused .search-action{
+display:block
+}
+.search.focused .search-action:disabled{
+opacity:.3
+}
+.widget.Sharing .sharing-button{
+display:none
+}
+.widget.Sharing .sharing-buttons li{
+padding:0
+}
+.widget.Sharing .sharing-buttons li span{
+display:none
+}
+.post-share-buttons{
+position:relative
+}
+.centered-bottom .share-buttons .svg-icon-24,.share-buttons .svg-icon-24{
+fill:#212121
+}
+.sharing-open.touch-icon-button:active .touch-icon,.sharing-open.touch-icon-button:focus .touch-icon{
+background-color:transparent
+}
+.share-buttons{
+background-color:#ffffff;
+border-radius:2px;
+box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+color:#212121;
+list-style:none;
+margin:0;
+padding:8px 0;
+position:absolute;
+top:-11px;
+min-width:200px;
+z-index:101
+}
+.share-buttons.hidden{
+display:none
+}
+.sharing-button{
+background:0 0;
+border:0;
+margin:0;
+outline:0;
+padding:0;
+cursor:pointer
+}
+.share-buttons li{
+margin:0;
+height:48px
+}
+.share-buttons li:last-child{
+margin-bottom:0
+}
+.share-buttons li .sharing-platform-button{
+box-sizing:border-box;
+cursor:pointer;
+display:block;
+height:100%;
+margin-bottom:0;
+padding:0 16px;
+position:relative;
+width:100%
+}
+.share-buttons li .sharing-platform-button:focus,.share-buttons li .sharing-platform-button:hover{
+background-color:rgba(128,128,128,.1);
+outline:0
+}
+.share-buttons li svg[class*=" sharing-"],.share-buttons li svg[class^=sharing-]{
+position:absolute;
+top:10px
+}
+.share-buttons li span.sharing-platform-button{
+position:relative;
+top:0
+}
+.share-buttons li .platform-sharing-text{
+display:block;
+font-size:16px;
+line-height:48px;
+white-space:nowrap
+}
+.share-buttons li .platform-sharing-text{
+margin-left:56px
+}
+.sidebar-container{
+background-color:#ffffff;
+max-width:284px;
+overflow-y:auto;
+-webkit-transition-property:-webkit-transform;
+transition-property:-webkit-transform;
+transition-property:transform;
+transition-property:transform,-webkit-transform;
+-webkit-transition-duration:.3s;
+transition-duration:.3s;
+-webkit-transition-timing-function:cubic-bezier(0,0,.2,1);
+transition-timing-function:cubic-bezier(0,0,.2,1);
+width:284px;
+z-index:101;
+-webkit-overflow-scrolling:touch
+}
+.sidebar-container .navigation{
+line-height:0;
+padding:16px
+}
+.sidebar-container .sidebar-back{
+cursor:pointer
+}
+.sidebar-container .widget{
+background:0 0;
+margin:0 16px;
+padding:16px 0
+}
+.sidebar-container .widget .title{
+color:#212121;
+margin:0
+}
+.sidebar-container .widget ul{
+list-style:none;
+margin:0;
+padding:0
+}
+.sidebar-container .widget ul ul{
+margin-left:1em
+}
+.sidebar-container .widget li{
+font-size:16px;
+line-height:normal
+}
+.sidebar-container .widget+.widget{
+border-top:1px dashed #cccccc
+}
+.BlogArchive li{
+margin:16px 0
+}
+.BlogArchive li:last-child{
+margin-bottom:0
+}
+.Label li a{
+display:inline-block
+}
+.BlogArchive .post-count,.Label .label-count{
+float:right;
+margin-left:.25em
+}
+.BlogArchive .post-count::before,.Label .label-count::before{
+content:"("
+}
+.BlogArchive .post-count::after,.Label .label-count::after{
+content:")"
+}
+.widget.Translate .skiptranslate>div{
+display:block!important
+}
+.widget.Profile .profile-link{
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex
+}
+.widget.Profile .team-member .default-avatar-wrapper,.widget.Profile .team-member .profile-img{
+-webkit-box-flex:0;
+-webkit-flex:0 0 auto;
+-ms-flex:0 0 auto;
+flex:0 0 auto;
+margin-right:1em
+}
+.widget.Profile .individual .profile-link{
+-webkit-box-orient:vertical;
+-webkit-box-direction:normal;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column
+}
+.widget.Profile .team .profile-link .profile-name{
+-webkit-align-self:center;
+-ms-flex-item-align:center;
+align-self:center;
+display:block;
+-webkit-box-flex:1;
+-webkit-flex:1 1 auto;
+-ms-flex:1 1 auto;
+flex:1 1 auto
+}
+.dim-overlay{
+background-color:rgba(0,0,0,.54);
+z-index:100
+}
+body.sidebar-visible{
+overflow-y:hidden
+}
+@media screen and (max-width:1439px){
+.sidebar-container{
+bottom:0;
+position:fixed;
+top:0;
+left:0;
+right:auto
+}
+.sidebar-container.sidebar-invisible{
+-webkit-transition-timing-function:cubic-bezier(.4,0,.6,1);
+transition-timing-function:cubic-bezier(.4,0,.6,1);
+-webkit-transform:translateX(-284px);
+-ms-transform:translateX(-284px);
+transform:translateX(-284px)
+}
+}
+@media screen and (min-width:1440px){
+.sidebar-container{
+position:absolute;
+top:0;
+left:0;
+right:auto
+}
+.sidebar-container .navigation{
+display:none
+}
+}
+.dialog{
+box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+background:#ffffff;
+box-sizing:border-box;
+color:#757575;
+padding:30px;
+position:fixed;
+text-align:center;
+width:calc(100% - 24px);
+z-index:101
+}
+.dialog input[type=email],.dialog input[type=text]{
+background-color:transparent;
+border:0;
+border-bottom:solid 1px rgba(117,117,117,.12);
+color:#757575;
+display:block;
+font-family:Roboto, sans-serif;
+font-size:16px;
+line-height:24px;
+margin:auto;
+padding-bottom:7px;
+outline:0;
+text-align:center;
+width:100%
+}
+.dialog input[type=email]::-webkit-input-placeholder,.dialog input[type=text]::-webkit-input-placeholder{
+color:#757575
+}
+.dialog input[type=email]::-moz-placeholder,.dialog input[type=text]::-moz-placeholder{
+color:#757575
+}
+.dialog input[type=email]:-ms-input-placeholder,.dialog input[type=text]:-ms-input-placeholder{
+color:#757575
+}
+.dialog input[type=email]::-ms-input-placeholder,.dialog input[type=text]::-ms-input-placeholder{
+color:#757575
+}
+.dialog input[type=email]::placeholder,.dialog input[type=text]::placeholder{
+color:#757575
+}
+.dialog input[type=email]:focus,.dialog input[type=text]:focus{
+border-bottom:solid 2px #2196f3;
+padding-bottom:6px
+}
+.dialog input.no-cursor{
+color:transparent;
+text-shadow:0 0 0 #757575
+}
+.dialog input.no-cursor:focus{
+outline:0
+}
+.dialog input.no-cursor:focus{
+outline:0
+}
+.dialog input[type=submit]{
+font-family:Roboto, sans-serif
+}
+.dialog .goog-buttonset-default{
+color:#2196f3
+}
+.subscribe-popup{
+max-width:364px
+}
+.subscribe-popup h3{
+color:#212121;
+font-size:1.8em;
+margin-top:0
+}
+.subscribe-popup .FollowByEmail h3{
+display:none
+}
+.subscribe-popup .FollowByEmail .follow-by-email-submit{
+color:#2196f3;
+display:inline-block;
+margin:0 auto;
+margin-top:24px;
+width:auto;
+white-space:normal
+}
+.subscribe-popup .FollowByEmail .follow-by-email-submit:disabled{
+cursor:default;
+opacity:.3
+}
+@media (max-width:800px){
+.blog-name div.widget.Subscribe{
+margin-bottom:16px
+}
+body.item-view .blog-name div.widget.Subscribe{
+margin:8px auto 16px auto;
+width:100%
+}
+}
+.tabs{
+list-style:none
+}
+.tabs li{
+display:inline-block
+}
+.tabs li a{
+cursor:pointer;
+display:inline-block;
+font-weight:700;
+text-transform:uppercase;
+padding:12px 8px
+}
+.tabs .selected{
+border-bottom:4px solid #ffffff
+}
+.tabs .selected a{
+color:#ffffff
+}
+body#layout .bg-photo,body#layout .bg-photo-overlay{
+display:none
+}
+body#layout .page_body{
+padding:0;
+position:relative;
+top:0
+}
+body#layout .page{
+display:inline-block;
+left:inherit;
+position:relative;
+vertical-align:top;
+width:540px
+}
+body#layout .centered{
+max-width:954px
+}
+body#layout .navigation{
+display:none
+}
+body#layout .sidebar-container{
+display:inline-block;
+width:40%
+}
+body#layout .hamburger-menu,body#layout .search{
+display:none
+}
+.centered-top-container .svg-icon-24,body.collapsed-header .centered-top-placeholder .svg-icon-24{
+fill:#ffffff
+}
+.sidebar-container .svg-icon-24{
+fill:#707070
+}
+.centered-bottom .svg-icon-24,body.collapsed-header .centered-top-container .svg-icon-24{
+fill:#707070
+}
+.centered-bottom .share-buttons .svg-icon-24,.share-buttons .svg-icon-24{
+fill:#212121
+}
+body{
+background-color:#eeeeee;
+color:#757575;
+font:15px Roboto, sans-serif;
+margin:0;
+min-height:100vh
+}
+img{
+max-width:100%
+}
+h3{
+color:#757575;
+font-size:16px
+}
+a{
+text-decoration:none;
+color:#2196f3
+}
+a:visited{
+color:#2196f3
+}
+a:hover{
+color:#2196f3
+}
+blockquote{
+color:#444444;
+font:italic 300 15px Roboto, sans-serif;
+font-size:x-large;
+text-align:center
+}
+.pill-button{
+font-size:12px
+}
+.bg-photo-container{
+height:480px;
+overflow:hidden;
+position:absolute;
+width:100%;
+z-index:1
+}
+.bg-photo{
+background:#eeeeee none repeat scroll top left;
+background-attachment:scroll;
+background-size:cover;
+-webkit-filter:blur(0px);
+filter:blur(0px);
+height:calc(100% + 2 * 0px);
+left:0px;
+position:absolute;
+top:0px;
+width:calc(100% + 2 * 0px)
+}
+.bg-photo-overlay{
+background:rgba(0,0,0,.26);
+background-size:cover;
+height:480px;
+position:absolute;
+width:100%;
+z-index:2
+}
+.hamburger-menu{
+float:left;
+margin-top:0
+}
+.sticky .hamburger-menu{
+float:none;
+position:absolute
+}
+.search{
+border-bottom:solid 1px rgba(255, 255, 255, 0);
+float:right;
+position:relative;
+-webkit-transition-property:width;
+transition-property:width;
+-webkit-transition-duration:.5s;
+transition-duration:.5s;
+-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);
+transition-timing-function:cubic-bezier(.4,0,.2,1);
+z-index:101
+}
+.search .dim-overlay{
+background-color:transparent
+}
+.search form{
+height:36px;
+-webkit-transition-property:border-color;
+transition-property:border-color;
+-webkit-transition-delay:.5s;
+transition-delay:.5s;
+-webkit-transition-duration:.2s;
+transition-duration:.2s;
+-webkit-transition-timing-function:cubic-bezier(.4,0,.2,1);
+transition-timing-function:cubic-bezier(.4,0,.2,1)
+}
+.search.focused{
+width:calc(100% - 48px)
+}
+.search.focused form{
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-flex:1;
+-webkit-flex:1 0 1px;
+-ms-flex:1 0 1px;
+flex:1 0 1px;
+border-color:#ffffff;
+margin-left:-24px;
+padding-left:36px;
+position:relative;
+width:auto
+}
+.item-view .search,.sticky .search{
+right:0;
+float:none;
+margin-left:0;
+position:absolute
+}
+.item-view .search.focused,.sticky .search.focused{
+width:calc(100% - 50px)
+}
+.item-view .search.focused form,.sticky .search.focused form{
+border-bottom-color:#757575
+}
+.centered-top-placeholder.cloned .search form{
+z-index:30
+}
+.search_button{
+-webkit-box-flex:0;
+-webkit-flex:0 0 24px;
+-ms-flex:0 0 24px;
+flex:0 0 24px;
+-webkit-box-orient:vertical;
+-webkit-box-direction:normal;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column
+}
+.search_button svg{
+margin-top:0
+}
+.search-input{
+height:48px
+}
+.search-input input{
+display:block;
+color:#ffffff;
+font:16px Roboto, sans-serif;
+height:48px;
+line-height:48px;
+padding:0;
+width:100%
+}
+.search-input input::-webkit-input-placeholder{
+color:#ffffff;
+opacity:.3
+}
+.search-input input::-moz-placeholder{
+color:#ffffff;
+opacity:.3
+}
+.search-input input:-ms-input-placeholder{
+color:#ffffff;
+opacity:.3
+}
+.search-input input::-ms-input-placeholder{
+color:#ffffff;
+opacity:.3
+}
+.search-input input::placeholder{
+color:#ffffff;
+opacity:.3
+}
+.search-action{
+background:0 0;
+border:0;
+color:#ffffff;
+cursor:pointer;
+display:none;
+height:48px;
+margin-top:0
+}
+.sticky .search-action{
+color:#757575
+}
+.search.focused .search-action{
+display:block
+}
+.search.focused .search-action:disabled{
+opacity:.3
+}
+.page_body{
+position:relative;
+z-index:20
+}
+.page_body .widget{
+margin-bottom:16px
+}
+.page_body .centered{
+box-sizing:border-box;
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-box-orient:vertical;
+-webkit-box-direction:normal;
+-webkit-flex-direction:column;
+-ms-flex-direction:column;
+flex-direction:column;
+margin:0 auto;
+max-width:922px;
+min-height:100vh;
+padding:24px 0
+}
+.page_body .centered>*{
+-webkit-box-flex:0;
+-webkit-flex:0 0 auto;
+-ms-flex:0 0 auto;
+flex:0 0 auto
+}
+.page_body .centered>#footer{
+margin-top:auto
+}
+.blog-name{
+margin:24px 0 16px 0
+}
+.item-view .blog-name,.sticky .blog-name{
+box-sizing:border-box;
+margin-left:36px;
+min-height:48px;
+opacity:1;
+padding-top:12px
+}
+.blog-name .subscribe-section-container{
+margin-bottom:32px;
+text-align:center;
+-webkit-transition-property:opacity;
+transition-property:opacity;
+-webkit-transition-duration:.5s;
+transition-duration:.5s
+}
+.item-view .blog-name .subscribe-section-container,.sticky .blog-name .subscribe-section-container{
+margin:0 0 8px 0
+}
+.blog-name .PageList{
+margin-top:16px;
+padding-top:8px;
+text-align:center
+}
+.blog-name .PageList .overflowable-contents{
+width:100%
+}
+.blog-name .PageList h3.title{
+color:#ffffff;
+margin:8px auto;
+text-align:center;
+width:100%
+}
+.centered-top-container .blog-name{
+-webkit-transition-property:opacity;
+transition-property:opacity;
+-webkit-transition-duration:.5s;
+transition-duration:.5s
+}
+.item-view .return_link{
+margin-bottom:12px;
+margin-top:12px;
+position:absolute
+}
+.item-view .blog-name{
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+-webkit-flex-wrap:wrap;
+-ms-flex-wrap:wrap;
+flex-wrap:wrap;
+margin:0 48px 27px 48px
+}
+.item-view .subscribe-section-container{
+-webkit-box-flex:0;
+-webkit-flex:0 0 auto;
+-ms-flex:0 0 auto;
+flex:0 0 auto
+}
+.item-view #header,.item-view .Header{
+margin-bottom:5px;
+margin-right:15px
+}
+.item-view .sticky .Header{
+margin-bottom:0
+}
+.item-view .Header p{
+margin:10px 0 0 0;
+text-align:left
+}
+.item-view .post-share-buttons-bottom{
+margin-right:16px
+}
+.sticky{
+background:#ffffff;
+box-shadow:0 0 20px 0 rgba(0,0,0,.7);
+box-sizing:border-box;
+margin-left:0
+}
+.sticky #header{
+margin-bottom:8px;
+margin-right:8px
+}
+.sticky .centered-top{
+margin:4px auto;
+max-width:890px;
+min-height:48px
+}
+.sticky .blog-name{
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+margin:0 48px
+}
+.sticky .blog-name #header{
+-webkit-box-flex:0;
+-webkit-flex:0 1 auto;
+-ms-flex:0 1 auto;
+flex:0 1 auto;
+-webkit-box-ordinal-group:2;
+-webkit-order:1;
+-ms-flex-order:1;
+order:1;
+overflow:hidden
+}
+.sticky .blog-name .subscribe-section-container{
+-webkit-box-flex:0;
+-webkit-flex:0 0 auto;
+-ms-flex:0 0 auto;
+flex:0 0 auto;
+-webkit-box-ordinal-group:3;
+-webkit-order:2;
+-ms-flex-order:2;
+order:2
+}
+.sticky .Header h1{
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+margin-right:-10px;
+margin-bottom:-10px;
+padding-right:10px;
+padding-bottom:10px
+}
+.sticky .Header p{
+display:none
+}
+.sticky .PageList{
+display:none
+}
+.search-focused>*{
+visibility:visible
+}
+.search-focused .hamburger-menu{
+visibility:visible
+}
+.item-view .search-focused .blog-name,.sticky .search-focused .blog-name{
+opacity:0
+}
+.centered-bottom,.centered-top-container,.centered-top-placeholder{
+padding:0 16px
+}
+.centered-top{
+position:relative
+}
+.item-view .centered-top.search-focused .subscribe-section-container,.sticky .centered-top.search-focused .subscribe-section-container{
+opacity:0
+}
+.page_body.has-vertical-ads .centered .centered-bottom{
+display:inline-block;
+width:calc(100% - 176px)
+}
+.Header h1{
+color:#ffffff;
+font:bold 45px Roboto, sans-serif;
+line-height:normal;
+margin:0 0 13px 0;
+text-align:center;
+width:100%
+}
+.Header h1 a,.Header h1 a:hover,.Header h1 a:visited{
+color:#ffffff
+}
+.item-view .Header h1,.sticky .Header h1{
+font-size:24px;
+line-height:24px;
+margin:0;
+text-align:left
+}
+.sticky .Header h1{
+color:#757575
+}
+.sticky .Header h1 a,.sticky .Header h1 a:hover,.sticky .Header h1 a:visited{
+color:#757575
+}
+.Header p{
+color:#ffffff;
+margin:0 0 13px 0;
+opacity:.8;
+text-align:center
+}
+.widget .title{
+line-height:28px
+}
+.BlogArchive li{
+font-size:16px
+}
+.BlogArchive .post-count{
+color:#757575
+}
+.Blog .blog-posts .post-outer-container{
+background:#ffffff;
+min-height:40px;
+padding:30px 40px;
+width:auto
+}
+.Blog .blog-posts .post-outer-container:last-child{
+margin-bottom:0
+}
+.Blog .blog-posts .post-outer-container .post-outer{
+border:0;
+position:relative;
+padding-bottom:.25em
+}
+.post-outer-container{
+margin-bottom:16px
+}
+.post:first-child{
+margin-top:0
+}
+.post .thumb{
+float:left;
+height:20%;
+width:20%
+}
+.post-share-buttons-bottom,.post-share-buttons-top{
+float:right
+}
+.post-share-buttons-bottom{
+margin-right:24px
+}
+.post-footer,.post-header{
+clear:left;
+color:rgba(0, 0, 0, 0.54);
+margin:0;
+width:inherit
+}
+.blog-pager{
+text-align:center
+}
+.blog-pager a{
+color:#2196f3
+}
+.blog-pager a:visited{
+color:#2196f3
+}
+.blog-pager a:hover{
+color:#2196f3
+}
+.post-title{
+font:bold 22px Roboto, sans-serif;
+float:left;
+margin:0 0 8px 0;
+max-width:calc(100% - 48px)
+}
+.post-title a{
+font:bold 30px Roboto, sans-serif
+}
+.post-title,.post-title a,.post-title a:hover,.post-title a:visited{
+color:#212121
+}
+.post-body{
+color:#757575;
+font:15px Roboto, sans-serif;
+line-height:1.6em;
+margin:1.5em 0 2em 0;
+display:block
+}
+.post-body img{
+height:inherit
+}
+.post-body .snippet-thumbnail{
+float:left;
+margin:0;
+margin-right:2em;
+max-height:128px;
+max-width:128px
+}
+.post-body .snippet-thumbnail img{
+max-width:100%
+}
+.byline{
+color:rgba(0, 0, 0, 0.54);
+display:inline-block;
+line-height:24px;
+margin-top:8px;
+vertical-align:top
+}
+.byline.post-author:first-child{
+margin-right:0
+}
+.byline.reactions .reactions-label{
+line-height:22px;
+vertical-align:top
+}
+.byline.post-share-buttons{
+position:relative;
+display:inline-block;
+margin-top:0;
+width:100%
+}
+.byline.post-share-buttons .sharing{
+float:right
+}
+.flat-button.ripple:hover{
+background-color:rgba(33,150,243,.12)
+}
+.flat-button.ripple .splash{
+background-color:rgba(33,150,243,.4)
+}
+a.timestamp-link,a:active.timestamp-link,a:visited.timestamp-link{
+color:inherit;
+font:inherit;
+text-decoration:inherit
+}
+.post-share-buttons{
+margin-left:0
+}
+.clear-sharing{
+min-height:24px
+}
+.comment-link{
+color:#2196f3;
+position:relative
+}
+.comment-link .num_comments{
+margin-left:8px;
+vertical-align:top
+}
+#comment-holder .continue{
+display:none
+}
+#comment-editor{
+margin-bottom:20px;
+margin-top:20px
+}
+#comments .comment-form h4,#comments h3.title{
+position:absolute;
+clip:rect(1px,1px,1px,1px);
+padding:0;
+border:0;
+height:1px;
+width:1px;
+overflow:hidden
+}
+.post-filter-message{
+background-color:rgba(0,0,0,.7);
+color:#fff;
+display:table;
+margin-bottom:16px;
+width:100%
+}
+.post-filter-message div{
+display:table-cell;
+padding:15px 28px
+}
+.post-filter-message div:last-child{
+padding-left:0;
+text-align:right
+}
+.post-filter-message a{
+white-space:nowrap
+}
+.post-filter-message .search-label,.post-filter-message .search-query{
+font-weight:700;
+color:#2196f3
+}
+#blog-pager{
+margin:2em 0
+}
+#blog-pager a{
+color:#2196f3;
+font-size:14px
+}
+.subscribe-button{
+border-color:#ffffff;
+color:#ffffff
+}
+.sticky .subscribe-button{
+border-color:#757575;
+color:#757575
+}
+.tabs{
+margin:0 auto;
+padding:0
+}
+.tabs li{
+margin:0 8px;
+vertical-align:top
+}
+.tabs .overflow-button a,.tabs li a{
+color:#cccccc;
+font:700 normal 15px Roboto, sans-serif;
+line-height:18px
+}
+.tabs .overflow-button a{
+padding:12px 8px
+}
+.overflow-popup .tabs li{
+text-align:left
+}
+.overflow-popup li a{
+color:#757575;
+display:block;
+padding:8px 20px
+}
+.overflow-popup li.selected a{
+color:#212121
+}
+a.report_abuse{
+font-weight:400
+}
+.Label li,.Label span.label-size,.byline.post-labels a{
+background-color:#f7f7f7;
+border:1px solid #f7f7f7;
+border-radius:15px;
+display:inline-block;
+margin:4px 4px 4px 0;
+padding:3px 8px
+}
+.Label a,.byline.post-labels a{
+color:rgba(0,0,0,0.54)
+}
+.Label ul{
+list-style:none;
+padding:0
+}
+.PopularPosts{
+background-color:#eeeeee;
+padding:30px 40px
+}
+.PopularPosts .item-content{
+color:#757575;
+margin-top:24px
+}
+.PopularPosts a,.PopularPosts a:hover,.PopularPosts a:visited{
+color:#2196f3
+}
+.PopularPosts .post-title,.PopularPosts .post-title a,.PopularPosts .post-title a:hover,.PopularPosts .post-title a:visited{
+color:#212121;
+font-size:18px;
+font-weight:700;
+line-height:24px
+}
+.PopularPosts,.PopularPosts h3.title a{
+color:#757575;
+font:15px Roboto, sans-serif
+}
+.main .PopularPosts{
+padding:16px 40px
+}
+.PopularPosts h3.title{
+font-size:14px;
+margin:0
+}
+.PopularPosts h3.post-title{
+margin-bottom:0
+}
+.PopularPosts .byline{
+color:rgba(0, 0, 0, 0.54)
+}
+.PopularPosts .jump-link{
+float:right;
+margin-top:16px
+}
+.PopularPosts .post-header .byline{
+font-size:.9em;
+font-style:italic;
+margin-top:6px
+}
+.PopularPosts ul{
+list-style:none;
+padding:0;
+margin:0
+}
+.PopularPosts .post{
+padding:20px 0
+}
+.PopularPosts .post+.post{
+border-top:1px dashed #cccccc
+}
+.PopularPosts .item-thumbnail{
+float:left;
+margin-right:32px
+}
+.PopularPosts .item-thumbnail img{
+height:88px;
+padding:0;
+width:88px
+}
+.inline-ad{
+margin-bottom:16px
+}
+.desktop-ad .inline-ad{
+display:block
+}
+.adsbygoogle{
+overflow:hidden
+}
+.vertical-ad-container{
+float:right;
+margin-right:16px;
+width:128px
+}
+.vertical-ad-container .AdSense+.AdSense{
+margin-top:16px
+}
+.inline-ad-placeholder,.vertical-ad-placeholder{
+background:#ffffff;
+border:1px solid #000;
+opacity:.9;
+vertical-align:middle;
+text-align:center
+}
+.inline-ad-placeholder span,.vertical-ad-placeholder span{
+margin-top:290px;
+display:block;
+text-transform:uppercase;
+font-weight:700;
+color:#212121
+}
+.vertical-ad-placeholder{
+height:600px
+}
+.vertical-ad-placeholder span{
+margin-top:290px;
+padding:0 40px
+}
+.inline-ad-placeholder{
+height:90px
+}
+.inline-ad-placeholder span{
+margin-top:36px
+}
+.Attribution{
+color:#757575
+}
+.Attribution a,.Attribution a:hover,.Attribution a:visited{
+color:#2196f3
+}
+.Attribution svg{
+fill:#707070
+}
+.sidebar-container{
+box-shadow:1px 1px 3px rgba(0,0,0,.1)
+}
+.sidebar-container,.sidebar-container .sidebar_bottom{
+background-color:#ffffff
+}
+.sidebar-container .navigation,.sidebar-container .sidebar_top_wrapper{
+background-color:#ffffff
+}
+.sidebar-container .sidebar_top{
+overflow:auto
+}
+.sidebar-container .sidebar_bottom{
+width:100%;
+padding-top:16px
+}
+.sidebar-container .widget:first-child{
+padding-top:0
+}
+.sidebar_top .widget.Profile{
+padding-bottom:16px
+}
+.widget.Profile{
+margin:0;
+width:100%
+}
+.widget.Profile h2{
+display:none
+}
+.widget.Profile h3.title{
+color:rgba(0,0,0,0.52);
+margin:16px 32px
+}
+.widget.Profile .individual{
+text-align:center
+}
+.widget.Profile .individual .profile-link{
+padding:1em
+}
+.widget.Profile .individual .default-avatar-wrapper .avatar-icon{
+margin:auto
+}
+.widget.Profile .team{
+margin-bottom:32px;
+margin-left:32px;
+margin-right:32px
+}
+.widget.Profile ul{
+list-style:none;
+padding:0
+}
+.widget.Profile li{
+margin:10px 0
+}
+.widget.Profile .profile-img{
+border-radius:50%;
+float:none
+}
+.widget.Profile .profile-link{
+color:#212121;
+font-size:.9em;
+margin-bottom:1em;
+opacity:.87;
+overflow:hidden
+}
+.widget.Profile .profile-link.visit-profile{
+border-style:solid;
+border-width:1px;
+border-radius:12px;
+cursor:pointer;
+font-size:12px;
+font-weight:400;
+padding:5px 20px;
+display:inline-block;
+line-height:normal
+}
+.widget.Profile dd{
+color:rgba(0, 0, 0, 0.54);
+margin:0 16px
+}
+.widget.Profile location{
+margin-bottom:1em
+}
+.widget.Profile .profile-textblock{
+font-size:14px;
+line-height:24px;
+position:relative
+}
+body.sidebar-visible .page_body{
+overflow-y:scroll
+}
+body.sidebar-visible .bg-photo-container{
+overflow-y:scroll
+}
+@media screen and (min-width:1440px){
+.sidebar-container{
+margin-top:480px;
+min-height:calc(100% - 480px);
+overflow:visible;
+z-index:32
+}
+.sidebar-container .sidebar_top_wrapper{
+background-color:#f7f7f7;
+height:480px;
+margin-top:-480px
+}
+.sidebar-container .sidebar_top{
+display:-webkit-box;
+display:-webkit-flex;
+display:-ms-flexbox;
+display:flex;
+height:480px;
+-webkit-box-orient:horizontal;
+-webkit-box-direction:normal;
+-webkit-flex-direction:row;
+-ms-flex-direction:row;
+flex-direction:row;
+max-height:480px
+}
+.sidebar-container .sidebar_bottom{
+max-width:284px;
+width:284px
+}
+body.collapsed-header .sidebar-container{
+z-index:15
+}
+.sidebar-container .sidebar_top:empty{
+display:none
+}
+.sidebar-container .sidebar_top>:only-child{
+-webkit-box-flex:0;
+-webkit-flex:0 0 auto;
+-ms-flex:0 0 auto;
+flex:0 0 auto;
+-webkit-align-self:center;
+-ms-flex-item-align:center;
+align-self:center;
+width:100%
+}
+.sidebar_top_wrapper.no-items{
+display:none
+}
+}
+.post-snippet.snippet-container{
+max-height:120px
+}
+.post-snippet .snippet-item{
+line-height:24px
+}
+.post-snippet .snippet-fade{
+background:-webkit-linear-gradient(left,#ffffff 0,#ffffff 20%,rgba(255, 255, 255, 0) 100%);
+background:linear-gradient(to left,#ffffff 0,#ffffff 20%,rgba(255, 255, 255, 0) 100%);
+color:#757575;
+height:24px
+}
+.popular-posts-snippet.snippet-container{
+max-height:72px
+}
+.popular-posts-snippet .snippet-item{
+line-height:24px
+}
+.PopularPosts .popular-posts-snippet .snippet-fade{
+color:#757575;
+height:24px
+}
+.main .popular-posts-snippet .snippet-fade{
+background:-webkit-linear-gradient(left,#eeeeee 0,#eeeeee 20%,rgba(238, 238, 238, 0) 100%);
+background:linear-gradient(to left,#eeeeee 0,#eeeeee 20%,rgba(238, 238, 238, 0) 100%)
+}
+.sidebar_bottom .popular-posts-snippet .snippet-fade{
+background:-webkit-linear-gradient(left,#ffffff 0,#ffffff 20%,rgba(255, 255, 255, 0) 100%);
+background:linear-gradient(to left,#ffffff 0,#ffffff 20%,rgba(255, 255, 255, 0) 100%)
+}
+.profile-snippet.snippet-container{
+max-height:192px
+}
+.has-location .profile-snippet.snippet-container{
+max-height:144px
+}
+.profile-snippet .snippet-item{
+line-height:24px
+}
+.profile-snippet .snippet-fade{
+background:-webkit-linear-gradient(left,#ffffff 0,#ffffff 20%,rgba(255, 255, 255, 0) 100%);
+background:linear-gradient(to left,#ffffff 0,#ffffff 20%,rgba(255, 255, 255, 0) 100%);
+color:rgba(0, 0, 0, 0.54);
+height:24px
+}
+@media screen and (min-width:1440px){
+.profile-snippet .snippet-fade{
+background:-webkit-linear-gradient(left,#f7f7f7 0,#f7f7f7 20%,rgba(247, 247, 247, 0) 100%);
+background:linear-gradient(to left,#f7f7f7 0,#f7f7f7 20%,rgba(247, 247, 247, 0) 100%)
+}
+}
+@media screen and (max-width:800px){
+.blog-name{
+margin-top:0
+}
+body.item-view .blog-name{
+margin:0 48px
+}
+.centered-bottom{
+padding:8px
+}
+body.item-view .centered-bottom{
+padding:0
+}
+.page_body .centered{
+padding:10px 0
+}
+body.item-view #header,body.item-view .widget.Header{
+margin-right:0
+}
+body.collapsed-header .centered-top-container .blog-name{
+display:block
+}
+body.collapsed-header .centered-top-container .widget.Header h1{
+text-align:center
+}
+.widget.Header header{
+padding:0
+}
+.widget.Header h1{
+font-size:24px;
+line-height:24px;
+margin-bottom:13px
+}
+body.item-view .widget.Header h1{
+text-align:center
+}
+body.item-view .widget.Header p{
+text-align:center
+}
+.blog-name .widget.PageList{
+padding:0
+}
+body.item-view .centered-top{
+margin-bottom:5px
+}
+.search-action,.search-input{
+margin-bottom:-8px
+}
+.search form{
+margin-bottom:8px
+}
+body.item-view .subscribe-section-container{
+margin:5px 0 0 0;
+width:100%
+}
+div.widget.PopularPosts{
+padding:16px
+}
+div.widget.Blog .blog-posts .post-outer-container{
+padding:16px
+}
+div.widget.Blog .blog-posts .post-outer-container .post-outer{
+padding:0
+}
+.post:first-child{
+margin:0
+}
+.post-body .snippet-thumbnail{
+margin:0 3vw 3vw 0
+}
+.post-body .snippet-thumbnail img{
+height:20vw;
+width:20vw;
+max-height:128px;
+max-width:128px
+}
+div.widget.PopularPosts div.item-thumbnail{
+margin:0 3vw 3vw 0
+}
+div.widget.PopularPosts div.item-thumbnail img{
+height:20vw;
+width:20vw;
+max-height:88px;
+max-width:88px
+}
+.post-title{
+line-height:1
+}
+.post-title,.post-title a{
+font-size:20px
+}
+.mobile-ad .inline-ad{
+display:block
+}
+.page_body.has-vertical-ads .vertical-ad-container,.page_body.has-vertical-ads .vertical-ad-container ins{
+display:none
+}
+.page_body.has-vertical-ads .centered .centered-bottom,.page_body.has-vertical-ads .centered .centered-top{
+display:block;
+width:auto
+}
+div.post-filter-message div{
+padding:8px 16px
+}
+}
+@media screen and (min-width:1440px){
+body{
+position:relative
+}
+body.item-view .blog-name{
+margin-left:48px
+}
+.page_body{
+margin-left:284px
+}
+.search{
+margin-left:0
+}
+.search.focused{
+width:100%
+}
+.sticky{
+padding-left:284px
+}
+.hamburger-menu{
+display:none
+}
+body.collapsed-header .page_body .centered-top-container{
+padding-left:284px;
+padding-right:0;
+width:100%
+}
+body.collapsed-header .centered-top-container .search.focused{
+width:100%
+}
+body.collapsed-header .centered-top-container .blog-name{
+margin-left:0
+}
+body.collapsed-header.item-view .centered-top-container .search.focused{
+width:calc(100% - 50px)
+}
+body.collapsed-header.item-view .centered-top-container .blog-name{
+margin-left:40px
+}
+}
+/* =========================
+Quano Blog skin overrides
+========================= */
+:root { --quano-header-bg-url: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6JfrX6HjJRQO-vE4epRoYUF7B1CQ0_WtOqfo6PBqfuy5nW7bXtLVbfHL7HPa0CcD75Jk9nIZYpRVckf1YT3aDIxfYqlqfJHlcH4r0Icc0PaVl2UfrZiHjsxcH8vglIeHCyjlwQpb6ZVxEqyaXBmTWEpEKD3gALp8TrpNdF2aUH11rm1w/s1600/blogbackground.png'); } /* Change this single URL when migrating the image to Cloudflare */
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+html, body { background: #f8fafc !important; color: #1e293b !important; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important; line-height: 1.6; }
+.bg-photo-container, .bg-photo-overlay { display: none !important; }
+.page { width: 100% !important; max-width: none !important; margin: 0 !important; background: transparent !important; }
+.page_body { width: 100% !important; margin: 0 !important; padding: 0 !important; background: #f8fafc !important; }
+.page_body .centered { display: block !important; width: 100% !important; max-width: none !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; }
+/* Quano v14: preserve Blogger placeholder visibility state. */
+.centered-top-container { display: block !important; width: 100% !important; min-height: 238px; padding: 50px 20px 34px !important; margin: 0 !important; color: #fff !important; background-color: #0f172a !important; background-image: linear-gradient(rgba(15,23,42,.82), rgba(15,23,42,.88)), var(--quano-header-bg-url); background-position: center, center; background-size: cover, cover; background-repeat: no-repeat, no-repeat; box-shadow: none !important; }
+.centered-top { display: flex !important; flex-direction: column !important; align-items: center !important; width: 100% !important; max-width: 1300px; margin: 0 auto !important; padding: 0 !important; position: static !important; }
+.quano-brand { position: absolute; z-index: 5; top: 18px; left: max(20px, calc((100vw - 1300px) / 2)); }
+.quano-brand a { display: flex; align-items: center; gap: 10px; color: #fff !important; text-decoration: none; font-size: 16px; font-weight: 700; letter-spacing: .4px; text-shadow: 0 1px 3px rgba(0,0,0,.3); }
+.quano-brand img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,.85); background: rgba(255,255,255,.15); }
+.centered-top .hamburger-menu, .centered-top .return_link, .centered-top nav, .centered-top .clearboth { display: none !important; }
+.centered-top .blog-name { order: 1; width: 100% !important; margin: 0 !important; padding: 0 !important; min-height: 0 !important; opacity: 1 !important; text-align: center !important; }
+#header { width: 100% !important; margin: 0 !important; padding: 0 !important; }
+#header .header-widget { background: transparent !important; }
+#header h1 { margin: 0 0 10px !important; width: 100% !important; text-align: center !important; color: #fff !important; font-size: 32px !important; line-height: 1.35 !important; font-weight: 750 !important; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,.3); }
+#header h1 a, #header h1 a:hover, #header h1 a:visited, #header p { color: #fff !important; }
+#header p { margin: 0 0 18px !important; text-align: center !important; color: #cbd5e1 !important; font-size: 15px !important; opacity: 1 !important; }
+.centered-top > .search { order: 2; display: flex !important; float: none !important; position: relative !important; width: min(500px, 100%) !important; max-width: 500px; margin: 0 auto !important; border: 0 !important; }
+.centered-top .search-expand { display: none !important; }
+.centered-top .search form, .centered-top .search.focused form { display: flex !important; width: 100% !important; height: 46px !important; padding: 0 !important; margin: 0 !important; border: 1px solid rgba(255,255,255,.24) !important; border-radius: 30px !important; background: rgba(255,255,255,.13) !important; backdrop-filter: blur(5px); box-sizing: border-box; }
+.centered-top .search form > * { display: block !important; }
+.centered-top .search .search-input { display: block !important; flex: 1 1 auto !important; min-width: 0 !important; padding: 0 !important; }
+.centered-top .search-input input { display: block !important; width: 100% !important; height: 44px !important; padding: 0 18px !important; border: 0 !important; border-radius: 30px !important; color: #fff !important; font-size: 14px !important; opacity: 1 !important; box-shadow: none !important; }
+.centered-top .search-input input::placeholder { color: #cbd5e1 !important; opacity: 1 !important; }
+.centered-top .search-action { display: block !important; height: 44px !important; margin: 0 !important; padding: 0 18px !important; color: #fff !important; font-size: 13px !important; background: transparent !important; border: 0 !important; }
+.quano-content-grid { display: grid !important; grid-template-columns: 240px minmax(0, 1fr) 280px; align-items: start; gap: 24px; max-width: 1300px; width: calc(100% - 40px); margin: 30px auto 20px !important; padding: 0 !important; }
+.quano-left-sidebar, .quano-center-column, .quano-right-sidebar { min-width: 0; width: auto !important; max-width: none !important; margin: 0 !important; }
+.quano-left-sidebar { grid-column: 1; }
+.quano-center-column { grid-column: 2; }
+.quano-right-sidebar { grid-column: 3; }
+/* Hide Blogger's label-result notice only on label pages. */
+body.label-view #main > .post-filter-message { display: none !important; }
+.quano-sidebar-card, .quano-about-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin: 0 0 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,.02); }
+.quano-sidebar-card h3, .quano-about-card h3 { color: #1e293b !important; font-size: 15px !important; line-height: 1.5 !important; margin: 0 0 12px !important; padding: 0 0 7px !important; border-bottom: 2px solid #2563eb; }
+.quano-category-section, .quano-category-section .widget, .quano-category-section .widget-content, .quano-category-labels { display: contents !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+.quano-category-list { display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 0; }
+.quano-category-list .quano-category-link { display: block; padding: 8px 10px; border-radius: 6px; color: #1e293b !important; font-size: 14px; line-height: 1.5; text-decoration: none !important; transition: background .2s, color .2s; }
+.quano-category-list .quano-category-link:hover, .quano-category-list .quano-category-link:focus, .quano-category-list .quano-category-link.active { background: #f1f5f9; color: #2563eb !important; font-weight: 600; }
+.quano-center-column > #ads, .quano-center-column .vertical-ad-container, .quano-center-column .inline-ad, .quano-right-sidebar .navigation { display: none !important; }
+#main.centered-bottom, .page_body.has-vertical-ads .centered .centered-bottom { display: block !important; width: 100% !important; max-width: none !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; }
+#page_body .widget { margin-bottom: 0 !important; }
+#page_body .main-heading { display: none !important; }
+/* Disable any leftover FeaturedPost widget retained in Blogger Layout. */
+.widget.FeaturedPost, .FeaturedPost { display: none !important; }
+#page_body .post-outer-container { display: block; min-height: 0 !important; width: auto !important; margin: 0 0 20px !important; padding: 0 !important; background: #fff !important; border: 1px solid #e2e8f0 !important; border-radius: 12px !important; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,.02); }
+/* Stretch the title link across each homepage/label card. */
+body:not(.item-view):not(.search-view):not(.archive-view) #Blog1 .blog-posts .post-outer-container .post-title a { position: static !important; }
+body:not(.item-view):not(.search-view):not(.archive-view) #Blog1 .blog-posts .post-outer-container .post-title a::after {
+content: "";
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 1;
+cursor: pointer;
+}
+/* Keep the two intended actions clickable above the stretched title link. */
+body:not(.item-view):not(.search-view):not(.archive-view) #Blog1 .blog-posts .post-outer-container .comment-link,
+body:not(.item-view):not(.search-view):not(.archive-view) #Blog1 .blog-posts .post-outer-container .jump-link a {
+position: relative !important;
+z-index: 2 !important;
+}
+#page_body .post-outer-container .post-outer { border: 0 !important; padding: 0 !important; margin: 0 !important; }
+#page_body .post { padding: 0 !important; margin: 0 !important; min-width: 0; }
+.quano-post-card-inner { display: block; min-width: 0; }
+.quano-post-copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 20px; }
+.quano-post-copy .post-title { display: block; float: none !important; width: 100%; max-width: 100% !important; margin: 0 0 8px !important; line-height: 1.4 !important; }
+.quano-post-copy .post-title a { color: #1e293b !important; font-size: 20px !important; font-weight: 700 !important; line-height: 1.4 !important; text-decoration: none !important; }
+.quano-post-copy .post-title a:hover { color: #2563eb !important; }
+.quano-post-copy .post-header { clear: none !important; display: block; width: 100% !important; margin: 0 0 8px !important; color: #64748b !important; font-size: 12px !important; }
+.quano-post-copy .post-body, .quano-post-copy .post-snippet, .quano-post-copy .snippet-container { max-height: 120px; overflow: hidden; margin: 0 0 12px !important; padding: 0 !important; color: #64748b !important; font-size: 13px !important; line-height: 1.7 !important; }
+.quano-post-copy .snippet-thumbnail { display: none !important; }
+.quano-post-copy .post-bottom { display: flex; flex-direction: column; margin-top: auto; padding-top: 6px; }
+.quano-post-copy .post-footer { clear: none !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+.quano-post-copy .jump-link { float: none !important; margin: 0 !important; padding: 0 !important; text-transform: none !important; }
+.quano-post-copy .jump-link a { padding: 0 !important; color: #2563eb !important; font-size: 13px !important; font-weight: 600 !important; text-transform: none !important; text-decoration: none !important; }
+#page_body .post-share-buttons-top, #page_body .post-share-buttons-bottom { display: none !important; }
+#page_body .blog-pager { display: flex !important; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 26px 0 30px !important; padding: 0 !important; text-align: center; }
+#page_body .quano-pager-button, #page_body .quano-pager-home, #page_body .quano-pager-disabled { display: inline-flex; justify-content: center; align-items: center; min-height: 46px; box-sizing: border-box; padding: 10px 18px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff; color: #1e293b !important; font-size: 14px; text-decoration: none !important; }
+#page_body .quano-pager-home.active { background: #2563eb; border-color: #2563eb; color: #fff !important; }
+#page_body .quano-pager-disabled { color: #94a3b8 !important; background: #f8fafc; cursor: default; }
+.quano-right-sidebar { position: static !important; display: block !important; visibility: visible !important; opacity: 1 !important; transform: none !important; inset: auto !important; overflow: visible !important; height: auto !important; min-height: 0 !important; box-shadow: none !important; background: transparent !important; z-index: auto !important; }
+.quano-right-sidebar .sidebar_top_wrapper, .quano-right-sidebar .sidebar_top, .quano-right-sidebar .sidebar_bottom { display: block !important; position: static !important; width: 100% !important; max-width: none !important; height: auto !important; max-height: none !important; min-height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; background: transparent !important; }
+.quano-right-sidebar .widget { margin: 0 0 20px !important; padding: 0 !important; background: transparent !important; border: 0 !important; }
+.quano-right-sidebar .widget.Profile, .quano-right-sidebar .BlogArchive, .quano-right-sidebar .Label, .quano-right-sidebar .ReportAbuse { display: none !important; }
+.quano-about-card { display: block; }
+.quano-channel-avatar { display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; width: 100px; height: 100px; border: 2px solid #e2e8f0; border-radius: 50%; overflow: hidden; background: #f1f5f9; }
+.quano-channel-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.quano-about-card h3 { margin-top: 0 !important; }
+.quano-about-card p { margin: 0 0 10px; color: #64748b; font-size: 13px; line-height: 1.7; }
+.quano-channel-button { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; margin-top: 15px; padding: 10px 12px; border-radius: 8px; background: #ff0000; color: #fff !important; font-size: 14px; font-weight: 700; text-decoration: none !important; }
+.quano-channel-button:hover { background: #cc0000; color: #fff !important; }
+.quano-channel-button span { font-size: 15px; }
+.quano-footer-ad { max-width: 1300px; width: calc(100% - 40px); margin: 20px auto 24px; padding: 24px 20px; border: 1px dashed #e2e8f0; border-radius: 12px; background: #fff; text-align: center; color: #64748b; font-size: 13px; }
+#footer { width: 100% !important; max-width: none !important; margin: 0 !important; padding: 20px 16px 34px !important; border-top: 1px solid #e2e8f0; background: #f8fafc; text-align: center; color: #64748b; }
+#footer .widget-content { margin: 0 auto !important; }
+body.item-view #main.centered-bottom { width: min(900px, calc(100% - 40px)) !important; margin: 30px auto !important; }
+body.item-view #page_body .post-outer-container { padding: 30px !important; overflow: visible; }
+body.item-view #page_body .post-title { float: none !important; max-width: 100% !important; color: #1e293b !important; font-size: 30px !important; line-height: 1.35 !important; }
+body.item-view #page_body .post-header { margin: 10px 0 20px !important; }
+body.item-view #page_body .post-body { color: #1e293b; font-size: 16px; line-height: 1.85; margin: 22px 0 !important; }
+body.item-view #page_body .post-body img { height: auto !important; max-width: 100% !important; border-radius: 8px; }
+body.item-view .quano-content-grid { grid-template-columns: minmax(0,1fr); }
+body.item-view .quano-left-sidebar, body.item-view .quano-right-sidebar { display: none !important; }
+@media (max-width: 1120px) {
+.quano-content-grid { grid-template-columns: 210px minmax(0,1fr); gap: 18px; }
+.quano-left-sidebar { grid-column: 1; }
+.quano-center-column { grid-column: 2; }
+.quano-right-sidebar { grid-column: 2; }
+.quano-right-sidebar { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.quano-right-sidebar > .quano-about-card { grid-column: 1 / -1; }
+.quano-right-sidebar .sidebar_top, .quano-right-sidebar .sidebar_bottom { display: none !important; }
+}
+@media (max-width: 780px) {
+.centered-top-container { min-height: 0; padding: 78px 16px 30px !important; }
+.quano-brand { top: 14px; left: 16px; }
+.quano-brand img { width: 32px; height: 32px; }
+.quano-brand span { font-size: 14px; }
+#header h1 { font-size: 28px !important; }
+.quano-content-grid { display: flex !important; flex-direction: column; gap: 14px; width: calc(100% - 28px); margin: 20px auto !important; }
+.quano-left-sidebar, .quano-center-column, .quano-right-sidebar { width: 100% !important; }
+.quano-center-column { order: 2; }
+.quano-left-sidebar { order: 1; }
+.quano-right-sidebar { order: 3; display: block !important; }
+.quano-right-sidebar .sidebar_top, .quano-right-sidebar .sidebar_bottom { display: none !important; }
+.quano-sidebar-card, .quano-about-card { padding: 16px; margin-bottom: 0; }
+.quano-category-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px 8px; }
+.quano-category-list li { margin: 0; }
+.quano-post-copy { padding: 16px; }
+.quano-post-copy .post-title a { font-size: 17px !important; }
+body.item-view #main.centered-bottom { width: calc(100% - 28px) !important; margin: 20px auto !important; }
+body.item-view #page_body .post-outer-container { padding: 18px !important; }
+.quano-footer-ad { width: calc(100% - 28px); margin: 18px auto; }
+}
+@media (max-width: 420px) {
+.quano-category-list { grid-template-columns: 1fr; }
+.centered-top-container .search-action { padding: 0 12px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto; }
+*, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+/* Quano layout corrections: based on the earlier working layout */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden !important; }
+.page, .page_body, .page_body .centered { min-width: 0 !important; max-width: 100% !important; }
+.centered-top-container {
+width: 100% !important;
+height: 272px !important;
+min-height: 272px !important;
+box-sizing: border-box !important;
+padding: 62px 20px 30px !important;
+background-image: linear-gradient(rgba(15,23,42,.75), rgba(15,23,42,.85)), var(--quano-header-bg-url) !important;
+overflow: hidden;
+}
+.centered-top { width: 100% !important; max-width: 100% !important; }
+.quano-brand { left: 30px !important; top: 20px !important; }
+.blog-name.container { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+.quano-heading { display: block !important; width: 100% !important; margin: 0 auto !important; text-align: center !important; color: #fff !important; }
+.quano-heading h1 { margin: 0 0 10px !important; color: #fff !important; font-size: 32px !important; font-weight: 750 !important; line-height: 1.35 !important; letter-spacing: 1px; text-shadow: 0 2px 4px rgba(0,0,0,.3); }
+.quano-heading p { margin: 0 0 20px !important; color: #cbd5e1 !important; font-size: 15px !important; line-height: 1.6 !important; }
+#header { display: none !important; }
+.centered-top > .search { width: min(575px, calc(100vw - 40px)) !important; max-width: 575px !important; margin-top: 15px !important; }
+.centered-top .search form, .centered-top .search.focused form { height: 48px !important; min-height: 48px !important; }
+.centered-top .search .search-input { position: relative !important; display: flex !important; align-items: center !important; height: 46px !important; min-height: 46px !important; }
+.quano-search-icon { position: absolute; z-index: 2; left: 16px; top: 50%; display: flex; width: 18px; height: 18px; align-items: center; justify-content: center; transform: translateY(-50%); color: #cbd5e1; pointer-events: none; }
+.quano-search-icon svg { display: block; width: 18px; height: 18px; }
+.centered-top .search-input input { box-sizing: border-box !important; width: 100% !important; height: 46px !important; padding: 0 18px 0 45px !important; border: 0 !important; background: transparent !important; }
+.centered-top .search-action { display: none !important; }
+.quano-content-grid {
+display: grid !important;
+grid-template-columns: 275px minmax(0, 1fr) 322px !important;
+gap: 28px !important;
+width: calc(100% - 80px) !important;
+max-width: 1450px !important;
+min-width: 0 !important;
+margin: 34px auto 20px !important;
+padding: 0 !important;
+}
+.quano-content-grid > *, .quano-center-column, #main.centered-bottom, #page_body { min-width: 0 !important; }
+.quano-channel-avatar { width: 112px !important; height: 112px !important; }
+.youtube-icon { display: block; width: 23px; height: 17px; flex: 0 0 auto; }
+.quano-channel-button { box-sizing: border-box !important; }
+.quano-footer-ad { width: calc(100% - 80px) !important; max-width: 1450px !important; }
+#footer .ReportAbuse { display: block !important; margin: 10px auto 0 !important; padding: 0 !important; background: transparent !important; border: 0 !important; text-align: center !important; }
+#footer a.report_abuse { display: inline-block; color: #94a3b8 !important; font-size: 11px !important; font-weight: 400 !important; line-height: 1.5 !important; text-decoration: none !important; }
+#footer a.report_abuse:hover { color: #64748b !important; text-decoration: underline !important; }
+@media (max-width: 1120px) {
+.quano-content-grid { grid-template-columns: 210px minmax(0,1fr) !important; width: calc(100% - 48px) !important; gap: 18px !important; }
+.quano-footer-ad { width: calc(100% - 48px) !important; }
+}
+@media (max-width: 780px) {
+.centered-top-container { height: auto !important; min-height: 0 !important; padding: 78px 16px 30px !important; }
+.quano-brand { top: 14px !important; left: 16px !important; }
+.quano-brand img { width: 32px !important; height: 32px !important; }
+.quano-brand span { font-size: 14px !important; }
+.quano-heading h1 { font-size: 28px !important; }
+.quano-heading p { font-size: 13px !important; margin-bottom: 18px !important; }
+.centered-top > .search { width: 100% !important; max-width: 575px !important; }
+.quano-content-grid { display: flex !important; flex-direction: column !important; width: calc(100% - 28px) !important; margin: 20px auto !important; gap: 14px !important; }
+.quano-left-sidebar, .quano-center-column, .quano-right-sidebar { width: 100% !important; max-width: 100% !important; }
+.quano-footer-ad { width: calc(100% - 28px) !important; }
+}
+/* Quano numbered pager: compact buttons modeled on the earlier working layout. */
+#page_body .quano-blog-pager { display: flex !important; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 26px 0 30px !important; padding: 0 !important; text-align: center; }
+#page_body .quano-blog-pager .quano-pager-link { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 42px; padding: 0 12px; box-sizing: border-box; border: 1px solid #e2e8f0; border-radius: 9px; background: #fff; color: #1e293b !important; font-size: 14px; font-weight: 500; text-decoration: none !important; transition: background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease; }
+#page_body .quano-blog-pager .quano-pager-link:hover { border-color: #93c5fd; background: #eff6ff; color: #1d4ed8 !important; transform: translateY(-1px); }
+#page_body .quano-blog-pager .quano-pager-link.is-current { border-color: #2563eb; background: #2563eb; color: #fff !important; font-weight: 700; box-shadow: 0 2px 5px rgba(37,99,235,.18); }
+#page_body .quano-blog-pager .quano-pager-link.is-disabled { color: #a0aec0 !important; background: #f8fafc; cursor: default; pointer-events: none; }
+#page_body .quano-blog-pager .quano-pager-ellipsis { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 42px; color: #94a3b8; }
+@media (max-width: 480px) { #page_body .quano-blog-pager { gap: 5px; } #page_body .quano-blog-pager .quano-pager-link { min-width: 36px; height: 38px; padding: 0 9px; font-size: 13px; } }
+/* Quano v6: centered, wider search; one-page pager; custom copyright footer. */
+.centered-top-container:not(.sticky) { position: relative !important; }
+.centered-top { position: static !important; width: 100% !important; max-width: none !important; }
+.centered-top > .search {
+position: absolute !important;
+z-index: 6 !important;
+left: 50% !important;
+top: 218px !important;
+transform: translateX(-50%) !important;
+width: min(575px, calc(100vw - 40px)) !important;
+max-width: 575px !important;
+margin: 0 !important;
+float: none !important;
+}
+.centered-top > .search > #search_top,
+.centered-top > .search #BlogSearch1,
+.centered-top > .search .widget,
+.centered-top > .search .widget-content,
+.centered-top > .search form {
+display: block !important;
+width: 100% !important;
+max-width: none !important;
+box-sizing: border-box !important;
+}
+.centered-top > .search form {
+display: flex !important;
+align-items: center !important;
+}
+.centered-top > .search .search-input {
+flex: 1 1 auto !important;
+min-width: 0 !important;
+}
+#footer .quano-copyright {
+display: block !important;
+margin: 16px auto 0 !important;
+color: #64748b !important;
+font-size: 13px !important;
+line-height: 1.6 !important;
+font-weight: 400 !important;
+text-align: center !important;
+}
+/* Blogger may render its default credit independently of the visible widget. */
+.Attribution, .widget.Attribution, #Attribution1 { display: none !important; }
+@media (max-width: 780px) {
+.centered-top > .search {
+position: relative !important;
+left: auto !important;
+top: auto !important;
+transform: none !important;
+align-self: center !important;
+width: min(575px, calc(100vw - 40px)) !important;
+max-width: 575px !important;
+margin: 14px auto 0 !important;
+}
+}
+/* Quano v7: keep pager controls visible, lift search slightly, and enlarge avatar artwork inside its frames. */
+.centered-top > .search {
+top: 198px !important;
+}
+.quano-brand .quano-brand-avatar {
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
+flex: 0 0 46px !important;
+width: 46px !important;
+height: 46px !important;
+box-sizing: border-box !important;
+overflow: hidden !important;
+border: 2px solid rgba(255,255,255,.88) !important;
+border-radius: 50% !important;
+background: rgba(255,255,255,.12) !important;
+}
+.quano-brand .quano-brand-avatar img {
+display: block !important;
+flex: 0 0 122% !important;
+width: 122% !important;
+height: 122% !important;
+max-width: none !important;
+box-sizing: border-box !important;
+border: 0 !important;
+border-radius: 50% !important;
+background: transparent !important;
+object-fit: cover !important;
+}
+.quano-channel-avatar img {
+display: block !important;
+flex: 0 0 118% !important;
+width: 118% !important;
+height: 118% !important;
+max-width: none !important;
+object-fit: cover !important;
+}
+#page_body .quano-blog-pager .quano-pager-link {
+min-width: 42px;
+min-height: 42px;
+height: 42px;
+padding: 0 12px;
+box-sizing: border-box;
+}
+@media (max-width: 780px) {
+.centered-top > .search {
+top: auto !important;
+}
+.quano-brand .quano-brand-avatar {
+flex-basis: 40px !important;
+width: 40px !important;
+height: 40px !important;
+}
+}
+/* Quano v9: final alignment pass for the brand avatars and header search. */
+.quano-brand a {
+display: flex !important;
+align-items: center !important;
+gap: 10px !important;
+line-height: 1 !important;
+}
+.quano-brand .quano-brand-avatar {
+position: relative !important;
+display: block !important;
+flex: 0 0 46px !important;
+width: 46px !important;
+height: 46px !important;
+min-width: 46px !important;
+min-height: 46px !important;
+padding: 0 !important;
+overflow: hidden !important;
+box-sizing: border-box !important;
+border: 2px solid rgba(255,255,255,.9) !important;
+border-radius: 50% !important;
+line-height: 0 !important;
+vertical-align: middle !important;
+}
+.quano-brand .quano-brand-avatar img {
+position: absolute !important;
+left: 50% !important;
+top: 50% !important;
+display: block !important;
+width: 126% !important;
+height: 126% !important;
+max-width: none !important;
+margin: 0 !important;
+padding: 0 !important;
+border: 0 !important;
+border-radius: 50% !important;
+object-fit: cover !important;
+object-position: center center !important;
+transform: translate(-50%, -50%) !important;
+}
+.quano-channel-avatar {
+position: relative !important;
+display: block !important;
+overflow: hidden !important;
+}
+.quano-channel-avatar img {
+position: absolute !important;
+left: 50% !important;
+top: 50% !important;
+display: block !important;
+width: 134% !important;
+height: 134% !important;
+max-width: none !important;
+margin: 0 !important;
+padding: 0 !important;
+border: 0 !important;
+border-radius: 50% !important;
+object-fit: cover !important;
+object-position: center center !important;
+transform: translate(-50%, -50%) !important;
+}
+.centered-top > .search {
+top: 178px !important;
+}
+@media (max-width: 780px) {
+.quano-brand .quano-brand-avatar {
+flex-basis: 40px !important;
+width: 40px !important;
+height: 40px !important;
+min-width: 40px !important;
+min-height: 40px !important;
+}
+.centered-top > .search {
+top: auto !important;
+}
+}
+/* Quano mobile search-field alignment fixes. Blogger's native sticky transition remains enabled. */
+@media (max-width: 780px) {
+/* Keep Blogger's native header transition enabled. Its scroll controller
+waits for transitionend before restoring the header to its placeholder. */
+/* Remove the translucent blur layer on mobile to reduce compositor artifacts. */
+.centered-top-container .search form,
+.centered-top-container .search.focused form {
+-webkit-backdrop-filter: none !important;
+backdrop-filter: none !important;
+}
+/* Keep icon, placeholder and submit label on one shared vertical centerline. */
+.centered-top > .search {
+display: block !important;
+align-self: center !important;
+width: min(575px, calc(100vw - 40px)) !important;
+max-width: 575px !important;
+}
+.centered-top .search form,
+.centered-top .search.focused form {
+display: flex !important;
+align-items: center !important;
+height: 48px !important;
+min-height: 48px !important;
+padding: 0 !important;
+margin: 0 !important;
+box-sizing: border-box !important;
+}
+.centered-top .search .search-input {
+position: relative !important;
+display: flex !important;
+flex: 1 1 auto !important;
+align-items: center !important;
+min-width: 0 !important;
+height: 46px !important;
+min-height: 46px !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+.centered-top .search-input input {
+display: block !important;
+box-sizing: border-box !important;
+width: 100% !important;
+height: 46px !important;
+min-height: 46px !important;
+margin: 0 !important;
+padding: 0 12px 0 45px !important;
+line-height: normal !important;
+vertical-align: middle !important;
+font-size: 14px !important;
+border: 0 !important;
+background: transparent !important;
+box-shadow: none !important;
+-webkit-appearance: none;
+appearance: none;
+}
+.centered-top .search-action {
+display: block !important;
+flex: 0 0 auto !important;
+box-sizing: border-box !important;
+height: 46px !important;
+min-height: 46px !important;
+margin: 0 !important;
+padding: 0 14px !important;
+line-height: 46px !important;
+vertical-align: middle !important;
+border: 0 !important;
+background: transparent !important;
+}
+.quano-search-icon {
+top: 50% !important;
+transform: translateY(-50%) !important;
+}
+}
+/* Quano v13 history: the v12 patch hid the placeholder and sticky header.
+The current version restores Blogger's native lifecycle; search alignment
+fixes remain, but transition suppression has been removed. */
+/* Blogger's native .sticky and .centered-top-placeholder rules are left intact. */
+/* Quano v15: preserve Blogger native sticky-header transition lifecycle. */
+/* Quano v16: keep the hero header in normal document flow; no sticky relocation. */
+/* Quano v17: homepage card excerpt and liquid-glass interactions. */
+/* Quano v18: pager after cards on homepage and label views; search stays still on hover. */
+.quano-post-excerpt {
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
+max-height: 5.2em;
+margin: 0 0 12px !important;
+padding: 0 !important;
+color: #64748b !important;
+font-size: 13px !important;
+line-height: 1.7 !important;
+overflow-wrap: anywhere;
+}
+.centered-top .search form {
+transition: border-color .22s ease, box-shadow .22s ease, background-color .22s ease !important;
+}
+.centered-top .search form:focus-within {
+border-color: rgba(96, 165, 250, .95) !important;
+background: rgba(255, 255, 255, .19) !important;
+box-shadow: 0 0 0 3px rgba(59, 130, 246, .20), 0 0 18px rgba(59, 130, 246, .42), inset 0 0 12px rgba(147, 197, 253, .10) !important;
+}
+.quano-channel-button {
+transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease !important;
+will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) {
+.quano-channel-button:hover {
+background: #e60000 !important;
+box-shadow: 0 9px 20px rgba(220, 38, 38, .24) !important;
+transform: translateY(-3px);
+}
+.quano-channel-button:active {
+transform: translateY(-1px);
+box-shadow: 0 4px 10px rgba(220, 38, 38, .18) !important;
+}
+}
+@media (prefers-reduced-motion: reduce) {
+.centered-top .search form, .quano-channel-button { transition: none !important; }
+}
+/* Quano detail page V1: all rules below are scoped to single article pages. */
+body.item-view .centered-top-container {
+position: relative !important;
+overflow: visible !important;
+}
+body.item-view .quano-detail-home-btn {
+position: absolute !important;
+z-index: 20 !important;
+top: 20px !important;
+right: max(20px, calc((100vw - 1380px) / 2 + 20px)) !important;
+display: inline-flex !important;
+align-items: center !important;
+justify-content: center !important;
+gap: 8px !important;
+min-height: 44px;
+padding: 8px 18px !important;
+border: 1px solid rgba(255,255,255,.42) !important;
+border-radius: 30px !important;
+background: linear-gradient(135deg, rgba(255,255,255,.25), rgba(255,255,255,.06)) !important;
+box-shadow: 0 8px 32px rgba(0,0,0,.28), inset 0 1px 1px rgba(255,255,255,.58), inset 0 -1px 1px rgba(255,255,255,.12) !important;
+color: #fff !important;
+font-size: 13px !important;
+font-weight: 500 !important;
+letter-spacing: .3px;
+line-height: 1.2;
+text-decoration: none !important;
+white-space: nowrap;
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+body.item-view .quano-detail-home-btn:hover,
+body.item-view .quano-detail-home-btn:focus-visible {
+border-color: rgba(255,255,255,.82) !important;
+background: linear-gradient(135deg, rgba(255,255,255,.36), rgba(255,255,255,.14)) !important;
+box-shadow: 0 12px 38px rgba(37,99,235,.30), inset 0 1px 2px rgba(255,255,255,.78), inset 0 -1px 2px rgba(255,255,255,.20) !important;
+color: #fff !important;
+transform: translateY(-2px);
+}
+body.item-view .quano-detail-home-btn:active {
+transform: translateY(0);
+}
+/* Desktop: dedicated Adsterra slot on the left, article in the middle,
+and the existing Quano information sidebar on the right. */
+body.item-view .quano-content-grid {
+display: grid !important;
+grid-template-columns: 260px minmax(0, 1fr) 280px !important;
+align-items: start !important;
+gap: 24px !important;
+width: calc(100% - 40px) !important;
+max-width: 1380px !important;
+margin: 30px auto 24px !important;
+padding: 0 !important;
+}
+/* The category sidebar is a list-page component; do not show it beside an article. */
+body.item-view .quano-left-sidebar {
+display: none !important;
+}
+/* Flatten the center wrapper so the dedicated ad slot and article become
+independent columns in the outer grid without moving or duplicating widgets. */
+body.item-view .quano-center-column {
+display: contents !important;
+}
+/* The old Blogger AdSense section is retained but not used on article pages.
+Keeping its original widget metadata avoids changing list-page behavior. */
+body.item-view .quano-center-column > #ads {
+display: none !important;
+}
+body.item-view .quano-adsterra-slot {
+grid-column: 1 !important;
+grid-row: 1 !important;
+align-self: start !important;
+min-width: 0 !important;
+width: 100% !important;
+box-sizing: border-box !important;
+margin: 0 !important;
+padding: 18px !important;
+border: 1px solid #e2e8f0 !important;
+border-radius: 12px !important;
+background: #fff !important;
+box-shadow: 0 4px 6px -1px rgba(0,0,0,.02) !important;
+}
+body.item-view .quano-adsterra-slot h3 {
+margin: 0 0 14px !important;
+padding: 0 0 8px !important;
+border-bottom: 2px solid #2563eb !important;
+color: #1e293b !important;
+font-size: 15px !important;
+font-weight: 700 !important;
+line-height: 1.5 !important;
+}
+body.item-view .quano-adsterra-placement {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+min-width: 0;
+min-height: 72px;
+box-sizing: border-box;
+padding: 12px;
+border: 1px dashed #e2e8f0;
+border-radius: 8px;
+background: #f8fafc;
+color: #94a3b8;
+font-size: 12px;
+line-height: 1.6;
+text-align: center;
+}
+body.item-view .quano-adsterra-placement iframe {
+display: block;
+max-width: 100% !important;
+border: 0;
+margin: 0 auto;
+}
+body.item-view #main.centered-bottom {
+grid-column: 2 !important;
+grid-row: 1 !important;
+display: block !important;
+width: 100% !important;
+max-width: none !important;
+min-width: 0 !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+body.item-view #page_body {
+width: 100% !important;
+max-width: 100% !important;
+min-width: 0 !important;
+}
+body.item-view #page_body .post-outer-container {
+width: 100% !important;
+margin: 0 !important;
+padding: 40px !important;
+overflow: visible !important;
+}
+body.item-view .quano-right-sidebar {
+grid-column: 3 !important;
+grid-row: 1 !important;
+display: flex !important;
+flex-direction: column !important;
+align-self: start !important;
+width: 100% !important;
+max-width: none !important;
+min-width: 0 !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+body.item-view .quano-right-sidebar .quano-about-card {
+width: 100% !important;
+margin: 0 0 20px !important;
+}
+body.item-view .quano-right-sidebar .sidebar_top_wrapper,
+body.item-view .quano-right-sidebar .sidebar_top,
+body.item-view .quano-right-sidebar .sidebar_bottom {
+display: none !important;
+}
+/* Tablet and mobile: article first, right-side information second, ad last. */
+@media (max-width: 1024px) {
+body.item-view .quano-content-grid {
+display: flex !important;
+flex-direction: column !important;
+align-items: stretch !important;
+gap: 18px !important;
+width: calc(100% - 48px) !important;
+max-width: 900px !important;
+margin: 24px auto 20px !important;
+}
+body.item-view #main.centered-bottom {
+order: 0 !important;
+width: 100% !important;
+margin: 0 !important;
+}
+body.item-view .quano-right-sidebar {
+order: 1 !important;
+display: flex !important;
+flex-direction: row !important;
+flex-wrap: wrap !important;
+gap: 16px !important;
+width: 100% !important;
+}
+body.item-view .quano-right-sidebar .quano-about-card {
+flex: 1 1 260px !important;
+max-width: none !important;
+margin: 0 !important;
+}
+body.item-view .quano-adsterra-slot {
+order: 2 !important;
+width: min(100%, 420px) !important;
+margin: 0 auto !important;
+}
+body.item-view #page_body .post-outer-container {
+padding: 32px 28px !important;
+}
+}
+@media (max-width: 780px) {
+body.item-view .centered-top-container {
+height: auto !important;
+min-height: 0 !important;
+padding: 78px 16px 30px !important;
+}
+body.item-view .quano-detail-home-btn {
+top: 13px !important;
+right: 14px !important;
+min-height: 36px;
+gap: 6px !important;
+padding: 7px 12px !important;
+font-size: 12px !important;
+}
+body.item-view .quano-content-grid {
+width: calc(100% - 28px) !important;
+margin: 20px auto !important;
+gap: 14px !important;
+}
+body.item-view #page_body .post-outer-container {
+padding: 24px 18px !important;
+}
+body.item-view #page_body .post-title {
+font-size: 25px !important;
+line-height: 1.4 !important;
+}
+body.item-view #page_body .post-body {
+font-size: 16px !important;
+line-height: 1.8 !important;
+}
+}
+@media (max-width: 420px) {
+body.item-view .quano-detail-home-btn {
+right: 10px !important;
+padding: 7px 10px !important;
+font-size: 11px !important;
+}
+body.item-view .quano-brand {
+left: 14px !important;
+}
+}
+@media (prefers-reduced-motion: reduce) {
+body.item-view .quano-detail-home-btn {
+transition: none !important;
+}
+}
+
+--></style>
+<style id='template-skin-1' type='text/css'><!--
+body#layout .hidden,
+body#layout .invisible {
+display: inherit;
+}
+body#layout .navigation {
+display: none;
+}
+body#layout .page,
+body#layout .sidebar_top,
+body#layout .sidebar_bottom {
+display: inline-block;
+left: inherit;
+position: relative;
+vertical-align: top;
+}
+body#layout .page {
+float: right;
+margin-left: 20px;
+width: 55%;
+}
+body#layout .sidebar-container {
+float: right;
+width: 40%;
+}
+body#layout .hamburger-menu {
+display: none;
+}
+--></style>
+<script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'></script>
+<link href='https://www.blogger.com/dyncss/462586399848290336/authorization.css?zx=0c0d2c44-873b-44e7-aab1-8eedc3b6976d' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyncss/462586399848290336/authorization.css?zx=0c0d2c44-873b-44e7-aab1-8eedc3b6976d' rel='stylesheet'/></noscript>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
+</head>
+<body class='item-view version-1-3-3'>
+<a class='skip-navigation' href='#main' tabindex='0'>
+跳到主要內容
+</a>
+<div class='page'>
+<div class='bg-photo-overlay'></div>
+<div class='bg-photo-container'>
+<div class='bg-photo'></div>
+</div>
+<div class='page_body'>
+<div class='centered'>
+<!-- Quano v16: no placeholder; disable Blogger's DOM-relocating collapsed header. -->
+<header class='centered-top-container' role='banner'>
+<div class='quano-brand'>
+<a href='https://quano-blog.blogspot.com/'>
+<span class='quano-brand-avatar'><img alt='夸諾博客頭像' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXmwiYxCfQm65rp99q4B51ByAcv3yqwISJyuS6QXxbwpT_X9sW7bXoM9UjKMnpmKuY6A7nqaXBiFjF86QvcRKC4w7s5-EVy-tgPITpZc9zGgn9SGoxh9dIF5ar11zz13iVY-fIW9BsGenv31D6cViHPSIL9eIFeI_W4V8prtdkaTTDTA/s1600/favicon.png'/></span>
+<span>夸諾博客</span>
+</a>
+</div>
+<div class='centered-top'>
+<a aria-label='返回首頁' class='quano-detail-home-btn' href='https://quano-blog.blogspot.com/'>
+<span aria-hidden='true'>&#8592;</span>
+<span>返回首頁</span>
+</a>
+<div class='search'>
+<button aria-label='搜尋' class='search-expand touch-icon-button'>
+<div class='flat-icon-button ripple'>
+<svg class='svg-icon-24 search-expand-icon'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_search_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+</div>
+</button>
+<div class='section' id='search_top' name='Search (Top)'><div class='widget BlogSearch' data-version='2' id='BlogSearch1'>
+<h3 class='title'>
+搜尋此網誌
+</h3>
+<div class='widget-content' role='search'>
+<form action='https://quano-blog.blogspot.com/search' target='_top'>
+<div class='search-input'>
+<span aria-hidden='true' class='quano-search-icon'>
+<svg focusable='false' viewBox='0 0 24 24'><circle cx='10.8' cy='10.8' fill='none' r='6.2' stroke='currentColor' stroke-width='2'></circle><path d='m15.4 15.4 4.2 4.2' fill='none' stroke='currentColor' stroke-linecap='round' stroke-width='2'></path></svg>
+</span>
+<input aria-label='搜索文章' autocomplete='off' name='q' placeholder='輸入關鍵字搜索文章...' value=''/>
+</div>
+<input class='search-action flat-button' type='submit' value='搜尋'/>
+</form>
+</div>
+</div></div>
+</div>
+<div class='clearboth'></div>
+<div class='blog-name container'>
+<div class='quano-heading'>
+<h1>夸諾博客</h1>
+<p>分享實用軟體&#12289;開源專案與詳細技術教程</p>
+</div>
+<div class='container section' id='header' name='標頭'><div class='widget Header' data-version='2' id='Header1'>
+<div class='header-widget'>
+<div>
+<h1>
+<a href='https://quano-blog.blogspot.com/'>
+夸诺博客 - 軟體開源與專案下載分享中心
+</a>
+</h1>
+</div>
+<p>
+</p>
+</div>
+</div></div>
+<nav role='navigation'>
+<div class='clearboth no-items section' id='page_list_top' name='網頁清單 (頂端)'>
+</div>
+</nav>
+</div>
+</div>
+</header>
+<div class='quano-content-grid'>
+<aside class='quano-left-sidebar'>
+<div class='quano-sidebar-card'>
+<h3>📂 文章分類</h3>
+<div class='quano-category-list'>
+<a class='quano-category-link' href='https://quano-blog.blogspot.com/'>🔥 全部文章</a>
+<div class='quano-category-section section' id='quano_categories' name='文章分類（Blogger 標籤）'><div class='widget Label' data-version='2' id='Label2'>
+<div class='quano-category-labels'>
+<a class='quano-category-link' href='https://quano-blog.blogspot.com/search/label/%F0%9F%92%BB%0A%0A%E5%AF%A6%E7%94%A8%E5%B7%A5%E5%85%B7'>
+🏷&#65039;
+                                
+💻
+
+實用工具
+</a>
+<a class='quano-category-link' href='https://quano-blog.blogspot.com/search/label/%F0%9F%9B%A0%EF%B8%8F%20%E9%96%8B%E6%BA%90%E5%B0%88%E6%A1%88%E5%88%86%E4%BA%AB'>
+🏷&#65039;
+                                
+🛠&#65039; 開源專案分享
+</a>
+</div>
+</div></div>
+</div>
+</div>
+</aside>
+<div class='quano-center-column'>
+<aside aria-label='贊助商廣告' class='quano-adsterra-slot' data-ad-provider='adsterra' id='quano-adsterra-slot'>
+<h3>贊助商廣告</h3>
+<div class='quano-adsterra-placement' id='quano-adsterra-placement'>
+<span>Adsterra 廣告預留位置</span>
+<!-- 後續將 Adsterra 提供的 Banner 程式碼放在此容器內&#12290; -->
+</div>
+</aside>
+<div class='vertical-ad-container no-items section' id='ads' name='廣告'>
+</div>
+<main class='centered-bottom' id='main' role='main' tabindex='-1'>
+<div class='main section' id='page_body' name='頁面主體'><div class='widget Blog' data-version='2' id='Blog1'>
+<div class='blog-posts hfeed container'>
+<article class='post-outer-container'>
+<div class='post-outer'>
+<div class='post'>
+<script type='application/ld+json'>{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://quano-blog.blogspot.com/2026/11/github-pages.html"
+  },
+  "headline": "零成本架站術&#65306;手把手教你用 GitHub Pages 部署個人免費部落格網站","description": "&#160;作者&#65306;夸諾 &#183; 分類&#65306;實用工具 想要擁有一個屬於自己的 個人網站 或 技術部落格 &#65292;卻又 不想花錢買網域和主機 嗎&#65311;今天這篇教程要來教大家如何利用 GitHub Pages &#65292;輕鬆打造 完全免費&#12289;高效且永續運作 的 個人靜態部落格&#65281; 一&#12289; 什麼是 GitHub Pages &#65311; ...","datePublished": "2026-11-04T06:29:00-08:00",
+  "dateModified": "2026-11-04T06:58:04-08:00","image": {
+    "@type": "ImageObject","url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/w1200-h630-p-k-no-nu/githubpages.png",
+    "height": 630,
+    "width": 1200},"publisher": {
+    "@type": "Organization",
+    "name": "Blogger",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/h60/",
+      "width": 206,
+      "height": 60
+    }
+  },"author": {
+    "@type": "Person",
+    "name": "夸諾博客"
+  }
+}</script>
+<a name='8829513603298570785'></a>
+<h3 class='post-title entry-title'>
+零成本架站術&#65306;手把手教你用 GitHub Pages 部署個人免費部落格網站
+</h3>
+<div class='post-share-buttons post-share-buttons-top'>
+<div class='byline post-share-buttons goog-inline-block'>
+<div aria-owns='sharing-popup-Blog1-byline-8829513603298570785' class='sharing' data-title='零成本架站術：手把手教你用 GitHub Pages 部署個人免費部落格網站'>
+<button aria-controls='sharing-popup-Blog1-byline-8829513603298570785' aria-label='分享' class='sharing-button touch-icon-button' id='sharing-button-Blog1-byline-8829513603298570785' role='button'>
+<div class='flat-icon-button ripple'>
+<svg class='svg-icon-24'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_share_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+</div>
+</button>
+<div class='share-buttons-container'>
+<ul aria-hidden='true' aria-label='分享' class='share-buttons hidden' id='sharing-popup-Blog1-byline-8829513603298570785' role='menu'>
+<li>
+<span aria-label='取得連結' class='sharing-platform-button sharing-element-link' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='取得連結'>
+<svg class='svg-icon-24 touch-icon sharing-link'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_link_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>取得連結</span>
+</span>
+</li>
+<li>
+<span aria-label='分享到 Facebook' class='sharing-platform-button sharing-element-facebook' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=facebook' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享到 Facebook'>
+<svg class='svg-icon-24 touch-icon sharing-facebook'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_facebook_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>Facebook</span>
+</span>
+</li>
+<li>
+<span aria-label='分享到 X' class='sharing-platform-button sharing-element-twitter' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=twitter' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享到 X'>
+<svg class='svg-icon-24 touch-icon sharing-twitter'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_twitter_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>X</span>
+</span>
+</li>
+<li>
+<span aria-label='分享到 Pinterest' class='sharing-platform-button sharing-element-pinterest' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=pinterest' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享到 Pinterest'>
+<svg class='svg-icon-24 touch-icon sharing-pinterest'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_pinterest_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>Pinterest</span>
+</span>
+</li>
+<li>
+<span aria-label='以電子郵件傳送' class='sharing-platform-button sharing-element-email' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=email' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='以電子郵件傳送'>
+<svg class='svg-icon-24 touch-icon sharing-email'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_email_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>以電子郵件傳送</span>
+</span>
+</li>
+<li aria-hidden='true' class='hidden'>
+<span aria-label='分享至其他應用程式' class='sharing-platform-button sharing-element-other' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享至其他應用程式'>
+<svg class='svg-icon-24 touch-icon sharing-sharingOther'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_more_horiz_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>其他應用程式</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class='post-header'>
+<div class='post-header-line-1'>
+<span class='byline post-timestamp'>
+<meta content='https://quano-blog.blogspot.com/2026/11/github-pages.html'/>
+<a class='timestamp-link' href='https://quano-blog.blogspot.com/2026/11/github-pages.html' rel='bookmark' title='permanent link'>
+<time class='published' datetime='2026-11-04T06:29:00-08:00' title='2026-11-04T06:29:00-08:00'>
+11月 04, 2026
+</time>
+</a>
+</span>
+</div>
+</div>
+<div class='post-body entry-content float-container' id='post-body-8829513603298570785'>
+<p><span style="color: #64748b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; font-size: 13px;">&nbsp;作者&#65306;夸諾 &#183; 分類&#65306;實用工具</span></p><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;">想要擁有一個屬於自己的<strong style="box-sizing: border-box;">個人網站</strong>或<strong style="box-sizing: border-box;">技術部落格</strong>&#65292;卻又<strong style="box-sizing: border-box;">不想花錢買網域和主機</strong>嗎&#65311;今天這篇教程要來教大家如何利用 <strong style="box-sizing: border-box;">GitHub Pages</strong>&#65292;輕鬆打造<strong style="box-sizing: border-box;">完全免費&#12289;高效且永續運作</strong>的<strong style="box-sizing: border-box;">個人靜態部落格&#65281;</strong></p><h2 style="border-left: 4px solid rgb(37, 99, 235); box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; font-size: 20px; margin-top: 35px; overflow-wrap: anywhere; padding-left: 10px;">一&#12289; 什麼是 <strong style="box-sizing: border-box;">GitHub Pages</strong>&#65311;</h2><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/s545/githubpages.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="306" data-original-width="545" height="321" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/w571-h321/githubpages.png" width="571" /></a></div><br /><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;">GitHub Pages 是 GitHub 提供的一項<strong style="box-sizing: border-box;">免費託管服務</strong>&#65292;允許使用者直接從 GitHub 倉庫&#65288;Repository&#65289;代管並展示靜態網頁&#12290;它非常適合用來架設<strong style="box-sizing: border-box;">個人履歷&#12289;作品集或是技術部落格</strong>&#12290;</p><h2 style="border-left: 4px solid rgb(37, 99, 235); box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; font-size: 20px; margin-top: 35px; overflow-wrap: anywhere; padding-left: 10px;">二&#12289;快速部署你的部落格</h2><h3 style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; overflow-wrap: anywhere;">1. 取得專案模板</h3><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;">你可以透過下方按鈕前往這個 GitHub 部落格模板倉庫<strong style="box-sizing: border-box;">Fork</strong>代碼</p><div class="download-btn-group" style="box-sizing: border-box; color: #1e293b; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; gap: 15px; margin: 25px 0px;"><a href="https://github.com/QuanoClass/Quano-blog" rel="noopener noreferrer" style="align-items: center; background-attachment: initial; background-clip: initial; background-image: linear-gradient(135deg, rgb(36, 41, 46) 0%, rgb(31, 35, 40) 100%); background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: rgba(36, 41, 46, 0.25) 0px 4px 14px, rgba(255, 255, 255, 0.2) 0px 1px 0px inset; box-sizing: border-box; color: white; display: inline-flex; font-size: 14px; font-weight: 600; gap: 10px; justify-content: center; overflow-wrap: anywhere; padding: 12px 24px; text-decoration: none;" target="_blank"><svg fill="currentColor" height="20" style="flex-shrink: 0;" viewbox="0 0 24 24" width="20"><path d="M12 .5C5.65.5.5 5.75.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 1.9 3.1 1.4.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.3.8 1 .8 2v3c0 .3.2.7.8.6A11.5 11.5 0 0023.5 12C23.5 5.75 18.35.5 12 .5z"></path></svg><span style="box-sizing: border-box;">GitHub 官方原項目下載</span></a></div><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidOoiluYWV-aty8o8K71I2O3y89egJXVrrOONIMGUE0NkiS7nUK-6t72MRpZ57fL8nTQOwZBtCpzUFJElMGU3HlSWeDiPxIJUM-OqUVHJPkD-by-f-A5xCPF6GgmoyaHzyb6jd9-t5w2vV5yIYiP4jOHNAIw2EY8ETLx7k1y27tgiZXG8MSJ8fq6q5v3OD/s1239/moban.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="453" data-original-width="1239" height="240" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidOoiluYWV-aty8o8K71I2O3y89egJXVrrOONIMGUE0NkiS7nUK-6t72MRpZ57fL8nTQOwZBtCpzUFJElMGU3HlSWeDiPxIJUM-OqUVHJPkD-by-f-A5xCPF6GgmoyaHzyb6jd9-t5w2vV5yIYiP4jOHNAIw2EY8ETLx7k1y27tgiZXG8MSJ8fq6q5v3OD/w658-h240/moban.png" width="658" /></a></div><br />首先&#65292;找到我的<strong style="box-sizing: border-box;">部落格模板</strong>&#65292;就是圖中的<strong style="box-sizing: border-box;">Quano-blog</strong>可以直接點擊右上角的<strong style="box-sizing: border-box;">Fork</strong>&#65288;或使用 Import repository 匯入功能&#65289;&#65292;將專案複製到你自己的帳號倉庫底下&#12290;沒有賬號的可以用郵箱<strong style="box-sizing: border-box;">免費注冊</strong>一個&#65292;在此就不過多闡述了<p></p><h3 style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; overflow-wrap: anywhere;">2. 開啟 GitHub Pages 功能</h3><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiQoqhFHVp3dg15UVOs-xpUTreou4Hz-9Y0CpNFBZZTca3RMc-9fLSWiFt7N8O-ZjEtrUkHKvV_KbrHbEUcXHsR8ZeD2cay4l01yLy8uPatqmHTCditWKT9CmqEc6O0BwEDW6VFod-VPKTdmftnnBiM3yuIoqt-q2ncRC4SbXGF1ZDSY1qIsYvtgTqcYEw/s1502/brunchs.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="865" data-original-width="1502" height="375" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiQoqhFHVp3dg15UVOs-xpUTreou4Hz-9Y0CpNFBZZTca3RMc-9fLSWiFt7N8O-ZjEtrUkHKvV_KbrHbEUcXHsR8ZeD2cay4l01yLy8uPatqmHTCditWKT9CmqEc6O0BwEDW6VFod-VPKTdmftnnBiM3yuIoqt-q2ncRC4SbXGF1ZDSY1qIsYvtgTqcYEw/w654-h375/brunchs.png" width="654" /></a></div><br />進入倉庫的<strong style="box-sizing: border-box;"> Settings&#65288;Settings&#65289;</strong>頁面&#65292;找到<strong style="box-sizing: border-box;"> Pages </strong>選單&#12290;將來源&#65288;Source&#65289;設定為<strong style="box-sizing: border-box;">主分支&#65288;main&#65289;</strong>&#65292;點擊儲存&#12290;<p></p><h3 style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; overflow-wrap: anywhere;">3. 修改個人化內容</h3><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxAYCAJ3fTHJSqJBRNFfNJJ7rFxbpjTfcQNzsmUukG1m9DRj7uHJHDaGABFNg3Ghj8AsBIlNbTgdWHpDSDz5vGbhzr9wo53SNB35TRwOU_DtoQzO9fwHBKvBqm1fbeWw_z2UiDUeqgspSyRkRBCIt5kXVZcqs9tzIwOvQNuAvtPWHZJiymBQ_r0fCE0Khv/s1153/fix.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="741" data-original-width="1153" height="437" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxAYCAJ3fTHJSqJBRNFfNJJ7rFxbpjTfcQNzsmUukG1m9DRj7uHJHDaGABFNg3Ghj8AsBIlNbTgdWHpDSDz5vGbhzr9wo53SNB35TRwOU_DtoQzO9fwHBKvBqm1fbeWw_z2UiDUeqgspSyRkRBCIt5kXVZcqs9tzIwOvQNuAvtPWHZJiymBQ_r0fCE0Khv/w680-h437/fix.png" width="680" /></a></div><br />進入你自己的倉庫後&#65292;把網誌的名稱&#12289;頭像以及文章內容換成你自己的&#12290;記得檢查圖片路徑和內部連結是否使用<strong style="box-sizing: border-box;">相對路徑</strong>&#65288;例如 ../&#65289;&#65292;尤其是index.html中關於對應卡片的<strong style="box-sizing: border-box;">詳情頁鏈接</strong>&#65292;這樣網站上線後才不會發生跑版或找不到檔案的問題&#12290;沒問題后就點擊<strong style="box-sizing: border-box;">提交變更&#65288;commit changes&#65289;</strong>&#12290;這部分的詳細内容最好還是看影片更明白&#12290;<p></p><h3 style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; overflow-wrap: anywhere;">4. 大功告成</h3><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2_ru02a7HfTmZqBOA0xTNK_NMyCXum-_L9ClFni43E5UszP_A4z1SCYa48VYFS4WIWIGO9pxFn1qTa7YJDu7hej4jQVcGqlMyQ72U0uuNia5qQ0LdgWfwg8tJouyNZw4LTbrRKrFezLiKyyZe7il2kx-C8OCw0NzG8xXGRwrdPucKTH4wHnU_P_7DNR77/s1347/upload1.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="725" data-original-width="1347" height="361" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2_ru02a7HfTmZqBOA0xTNK_NMyCXum-_L9ClFni43E5UszP_A4z1SCYa48VYFS4WIWIGO9pxFn1qTa7YJDu7hej4jQVcGqlMyQ72U0uuNia5qQ0LdgWfwg8tJouyNZw4LTbrRKrFezLiKyyZe7il2kx-C8OCw0NzG8xXGRwrdPucKTH4wHnU_P_7DNR77/w672-h361/upload1.png" width="672" /></a><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2_ru02a7HfTmZqBOA0xTNK_NMyCXum-_L9ClFni43E5UszP_A4z1SCYa48VYFS4WIWIGO9pxFn1qTa7YJDu7hej4jQVcGqlMyQ72U0uuNia5qQ0LdgWfwg8tJouyNZw4LTbrRKrFezLiKyyZe7il2kx-C8OCw0NzG8xXGRwrdPucKTH4wHnU_P_7DNR77/s1347/upload1.png" style="margin-left: 1em; margin-right: 1em;"></a><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7xGpFjYxUblf_Ofwzxu0UdssxT5lHVazu7DuEBeVLBxrFaby_lZ9K_KwbScO6ibtLp8lnO0kcbZ4uijJ5H2vJo07vA1E6OoGrf8CsIAPeTUMQ5WiwbDLjM558t7SkelLklSOB2h0ov2dHkj8yEaUoN9960zV0aXDWVD-EVC9xY2cAxUC-72ba6Q8QEPFc/s1382/upload2.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="624" data-original-width="1382" height="312" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7xGpFjYxUblf_Ofwzxu0UdssxT5lHVazu7DuEBeVLBxrFaby_lZ9K_KwbScO6ibtLp8lnO0kcbZ4uijJ5H2vJo07vA1E6OoGrf8CsIAPeTUMQ5WiwbDLjM558t7SkelLklSOB2h0ov2dHkj8yEaUoN9960zV0aXDWVD-EVC9xY2cAxUC-72ba6Q8QEPFc/w694-h312/upload2.png" width="694" /></a></div></div><br /><br />回到GitHub倉庫頁&#65292;刷新后等待其左上角和右下角變爲<strong style="box-sizing: border-box;">綠色對勾</strong>&#65292;説明網站更新成功&#12290;點開它&#65292;你就會發現屬於你的個人部落格已經完美上線運作囉&#65281;<p></p><h2 style="border-left: 4px solid rgb(37, 99, 235); box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; font-size: 20px; margin-top: 35px; overflow-wrap: anywhere; padding-left: 10px;">三&#12289; 常見問題與配置注意事項</h2><p style="box-sizing: border-box; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; margin: 15px 0px; overflow-wrap: anywhere;"></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiR5S18Gxcyn6MhKTSoXH8ZhoYr2I2x9qk38HGGZkNpd3GazlgW19hzbV3kScLS9tmVbo3Q5pbI8bromq5WVjGBF1dm4VG9tDOT8EQugp0gwZkMucc3YqJA1SOz-KZuWDr8UXfwtU5taxYbX8t2rdkmtsd8KutvJqYFBHOpDvRunEizVElFxTVjPUf9aA3r/s908/wrong.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="658" data-original-width="908" height="445" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiR5S18Gxcyn6MhKTSoXH8ZhoYr2I2x9qk38HGGZkNpd3GazlgW19hzbV3kScLS9tmVbo3Q5pbI8bromq5WVjGBF1dm4VG9tDOT8EQugp0gwZkMucc3YqJA1SOz-KZuWDr8UXfwtU5taxYbX8t2rdkmtsd8KutvJqYFBHOpDvRunEizVElFxTVjPUf9aA3r/w614-h445/wrong.png" width="614" /></a></div><br />如果在刷新過程中遇到報錯&#65292;就重新上傳加載一遍&#65292;通常是GitHub那邊的問題&#12290;<p></p><div class="post-bottom-ad" style="align-items: center; background: rgb(241, 245, 249); border-radius: 8px; border: 0.8px dashed rgb(226, 232, 240); box-sizing: border-box; color: #1e293b; display: flex; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif; justify-content: center; margin-top: 40px; min-height: 90px; padding: 20px; text-align: center;"><span style="box-sizing: border-box; color: #64748b; font-size: 13px;">&#65288;文章底部横版赞助广告&#65289;</span></div>
+</div>
+<div class='post-bottom'>
+<div class='post-footer float-container'>
+<div class='post-footer-line post-footer-line-1'>
+</div>
+<div class='post-footer-line post-footer-line-2'>
+<span class='byline post-labels'>
+<span class='byline-label'>
+</span>
+<a href='https://quano-blog.blogspot.com/search/label/%F0%9F%92%BB%0A%0A%E5%AF%A6%E7%94%A8%E5%B7%A5%E5%85%B7' rel='tag'>💻
+
+實用工具</a>
+</span>
+</div>
+<div class='post-footer-line post-footer-line-3'>
+</div>
+</div>
+<div class='post-share-buttons post-share-buttons-bottom invisible'>
+<div class='byline post-share-buttons goog-inline-block'>
+<div aria-owns='sharing-popup-Blog1-byline-8829513603298570785' class='sharing' data-title='零成本架站術：手把手教你用 GitHub Pages 部署個人免費部落格網站'>
+<button aria-controls='sharing-popup-Blog1-byline-8829513603298570785' aria-label='分享' class='sharing-button touch-icon-button' id='sharing-button-Blog1-byline-8829513603298570785' role='button'>
+<div class='flat-icon-button ripple'>
+<svg class='svg-icon-24'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_share_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+</div>
+</button>
+<div class='share-buttons-container'>
+<ul aria-hidden='true' aria-label='分享' class='share-buttons hidden' id='sharing-popup-Blog1-byline-8829513603298570785' role='menu'>
+<li>
+<span aria-label='取得連結' class='sharing-platform-button sharing-element-link' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='取得連結'>
+<svg class='svg-icon-24 touch-icon sharing-link'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_link_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>取得連結</span>
+</span>
+</li>
+<li>
+<span aria-label='分享到 Facebook' class='sharing-platform-button sharing-element-facebook' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=facebook' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享到 Facebook'>
+<svg class='svg-icon-24 touch-icon sharing-facebook'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_facebook_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>Facebook</span>
+</span>
+</li>
+<li>
+<span aria-label='分享到 X' class='sharing-platform-button sharing-element-twitter' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=twitter' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享到 X'>
+<svg class='svg-icon-24 touch-icon sharing-twitter'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_twitter_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>X</span>
+</span>
+</li>
+<li>
+<span aria-label='分享到 Pinterest' class='sharing-platform-button sharing-element-pinterest' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=pinterest' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享到 Pinterest'>
+<svg class='svg-icon-24 touch-icon sharing-pinterest'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_pinterest_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>Pinterest</span>
+</span>
+</li>
+<li>
+<span aria-label='以電子郵件傳送' class='sharing-platform-button sharing-element-email' data-href='https://www.blogger.com/share-post/462586399848290336/8829513603298570785?https=true&target=email' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='以電子郵件傳送'>
+<svg class='svg-icon-24 touch-icon sharing-email'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_24_email_dark' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>以電子郵件傳送</span>
+</span>
+</li>
+<li aria-hidden='true' class='hidden'>
+<span aria-label='分享至其他應用程式' class='sharing-platform-button sharing-element-other' data-url='https://quano-blog.blogspot.com/2026/11/github-pages.html' role='menuitem' tabindex='-1' title='分享至其他應用程式'>
+<svg class='svg-icon-24 touch-icon sharing-sharingOther'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_more_horiz_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<span class='platform-sharing-text'>其他應用程式</span>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class='comments embed' data-num-comments='0' id='comments'>
+<a name='comments'></a>
+<h3 class='title'>留言</h3>
+<div id='Blog1_comments-block-wrapper'>
+</div>
+<div class='footer'>
+<div class='comment-form'>
+<a name='comment-form'></a>
+<h4 id='comment-post-message'>張貼留言</h4>
+<a href='https://www.blogger.com/comment/frame/462586399848290336?po=8829513603298570785&hl=zh-TW&saa=85391&origin=https://quano-blog.blogspot.com&skin=contempo' id='comment-editor-src'></a>
+<iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410px' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
+<script src='https://www.blogger.com/static/v1/jsbin/2103827977-comment_from_post_iframe.js' type='text/javascript'></script>
+<script type='text/javascript'>
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+    </script>
+</div>
+</div>
+</section>
+</article>
+</div>
+</div><div class='widget PopularPosts' data-version='2' id='PopularPosts1'>
+<h3 class='title'>
+這個網誌中的熱門文章
+</h3>
+<div class='widget-content'>
+<div role='feed'>
+<article class='post' role='article'>
+<h3 class='post-title'><a href='https://quano-blog.blogspot.com/2026/11/telegram-bot-2026-10-14-telegram.html'>告別垃圾信息&#65281;Telegram 必備資源搜索神器&#65306;极搜 Bot 深度解析</a></h3>
+<div class='post-header'>
+<div class='post-header-line-1'>
+<span class='byline post-timestamp'>
+<meta content='https://quano-blog.blogspot.com/2026/11/telegram-bot-2026-10-14-telegram.html'/>
+<a class='timestamp-link' href='https://quano-blog.blogspot.com/2026/11/telegram-bot-2026-10-14-telegram.html' rel='bookmark' title='permanent link'>
+<time class='published' datetime='2026-11-01T01:35:00-07:00' title='2026-11-01T01:35:00-07:00'>
+11月 01, 2026
+</time>
+</a>
+</span>
+</div>
+</div>
+<div class='item-content float-container'>
+<div class='popular-posts-snippet snippet-container r-snippet-container'>
+<div class='snippet-item r-snippetized'>
+作者&#65306;夸諾 &#183; 分類&#65306;實用工具 你平時在 Telegram&#65288;電報&#65289;上找資源&#65292;是不是還依賴官方自帶的搜索功能&#65311; &#8203;相信很多人都有過類似的困擾&#65306;搜出来的全是殭屍群&#12289;無效廣告或者過期的垃圾信息&#65292;不僅效率極低&#65292;還浪費大量時間今天就為大家推薦一款 Telegram 上的資源搜索神器&#8212;&#8212;极搜機器人&#12290; 一&#12289; 官方專屬鏈接直達 你可以透過下方按鈕前往Telegram極搜機器人&#65288;@jisou2&#65289;啟動頁&#65306; 啟動 Telegram 极搜bot 二&#12289; 极搜bot核心功能簡介 &#8203;極搜 (@jisou2) 被譽為中文圈公認規模最大&#12289;覆蓋最廣的 Telegram 搜索 Bot 之一&#12290;它能夠幫你從龐大的 Telegram 頻道和群組中精準篩選出真正有價值的內容&#65292;大幅提升獲取資源的效率&#12290; 🔍 功能亮點 1.海量資源精準定位 影視大片&#65306;熱門電影&#12289;高分美劇&#12289;動漫及紀錄片等&#12290; 實用工具&#65306;各種實用軟件&#12289;MOD 破解工具&#12289;學習資料等&#12290; 稀缺資源&#65306;各類冷門文獻&#12289;電子書以及優質頻道推薦&#12290; 2.極速響應&#65292;即搜即得 只需在 Bot 對話框中輸入關鍵詞&#65292;即可一鍵秒出搜索結果&#65292;告別無意義的漫長等待&#12290; 3.&#8203;熱搜排行榜與互動社區 機器人內置熱搜與搜索群組功能&#65292;你可以直觀了解大家最近都在關注和搜索什麼&#12300;寶藏資源&#12301; 🚀 如何開始使用&#65311; 使用極搜機器人非常簡單&#65292;只需以下步驟&#65306; 1.一鍵啟動&#65306;通過點擊文章開頭專屬按鈕即可直接打開並啟動極搜機器人 &#8203;2.輸入關鍵詞&#65306;在對話框中發送你想查找的內容&#65288;如&#12300;電影名稱&#12301;或&#12300;工具軟件&#12301;&#65289; 3.&#8203;獲取資源&#65306;根據返回的列表直接進入對應頻道或下載資源&#12290; 三&#12289; 總結 趕快開始你的高效telegram搜索之旅吧&#65281;如果有其他疑問&#65292;歡迎在 YouTube 影片下方留言討論&#65281;
+</div>
+<a class='snippet-fade r-snippet-fade hidden' href='https://quano-blog.blogspot.com/2026/11/telegram-bot-2026-10-14-telegram.html'></a>
+</div>
+<div class='jump-link flat-button ripple'>
+<a href='https://quano-blog.blogspot.com/2026/11/telegram-bot-2026-10-14-telegram.html' title='告別垃圾信息！Telegram 必備資源搜索神器：极搜 Bot 深度解析'>
+閱讀完整內容
+</a>
+</div>
+</div>
+</article>
+<article class='post' role='article'>
+<h3 class='post-title'><a href='https://quano-blog.blogspot.com/2026/11/idm-20mb-rayburst.html'>還在用收費的 IDM&#65311;這款開源免費&#12289;體積僅 20MB 的下載神器&#8212;&#8212;Rayburst 絕對不容錯過&#65281;</a></h3>
+<div class='post-header'>
+<div class='post-header-line-1'>
+<span class='byline post-timestamp'>
+<meta content='https://quano-blog.blogspot.com/2026/11/idm-20mb-rayburst.html'/>
+<a class='timestamp-link' href='https://quano-blog.blogspot.com/2026/11/idm-20mb-rayburst.html' rel='bookmark' title='permanent link'>
+<time class='published' datetime='2026-11-04T06:15:00-08:00' title='2026-11-04T06:15:00-08:00'>
+11月 04, 2026
+</time>
+</a>
+</span>
+</div>
+</div>
+<div class='item-content float-container'>
+<div class='popular-posts-snippet snippet-container r-snippet-container'>
+<div class='snippet-item r-snippetized'>
+作者&#65306;夸諾 &#183; 分類&#65306;系統優化工具 大家好&#65292;作為一個合格的老司機&#65292;每天都要下載各類資源&#12290;如果你還在使用收費的 IDM&#65292;不如來看看今天這款知名的開源免費多執行緒下載神器&#8212;&#8212;Rayburst&#65288;原名 Motrix Next&#65289;&#12290; 一&#12289; 官方倉庫與下載地址 你可以透過下方按鈕前往 GitHub 官方倉庫下載源碼&#65292;或者透過百度網盤獲取打包好的分發版本&#65306; GitHub 官方原項目下載 百度網盤高速分發 (提取碼: nz25) 二&#12289; 軟體核心功能簡介 1.🚀 協議全能&#65306;老司機的終極利器 作為老司機神器&#65292;Rayburst 的協議支持非常全能&#65281;底層搭載了 Aria2 Next 引擎&#65292;HTTP&#12289;FTP&#12289;SFTP&#65292;甚至是古老的 ED2K 電驢協議通通不在話下&#12290; 而在 BitTorrent 磁力下載方面&#65292;它更是直接換上了 qBittorrent 同款的 libtorrent 專業內核&#65281;DHT&#12289;PEX 調度能力極強&#65292;磁力解析飛快&#65292;支持離線元數據感知和選擇性檔案下載&#65292;速度直接拉滿&#65281; 2.🎬 黑科技拉滿&#65306;原生串流媒體與直播錄製 更狠的是 v4.0 推出的原生串流媒體下載功能&#65281; 以往下載網頁串流媒體需要配置繁瑣的 ffmpeg&#65292;而 Rayburst 能直接讀取 HLS 和 MPEG-DASH 源&#65292;讓你自由選擇音視訊軌道和字幕&#65292;一鍵合成為標準的 MP4 或 MKV 檔案&#65281; 它甚至還支持網路直播錄製&#65292;設定好時間就能自動保存串流媒體檔案&#65281; 3.🌐 瀏覽器無縫聯動&#65306;Rayburst Connect 搭配官方瀏覽器外掛 Rayburst Connect&#65292;還能實現網頁資源自動嗅探和批次接管&#65292;體驗完全不遜色於 IDM&#12290; &#9888;&#65039; 避坑指南&#65306;瀏覽器外掛不能單獨使用&#65281;必須先到 Rayburst 桌面端軟體的設定裡找到 API 金鑰&#65292;複製並貼上到外掛的設定裡&#65292;否則外掛是無法正常運作的&#65288;會提示連線逾時&#65289;&#12290; 4.&#9889; 極致輕量&#65306;體積暴減 75%&#65292;啟動秒開 在電腦資源佔用方面&#65292;Rayburst 拋棄了臃腫的 Electron 框架&#65292;改用 Tauri 2 + Rust 重寫&#12290; 安裝包體積從原本 Motrix 的 80MB 暴減 75%&#65292;現在只有 20MB 左右&#65281;啟動秒開&#65292;記憶體佔用幾乎沒有&#12290; 搭配 Material Design 3 風格的現代化 UI&#65292;動效極其絲滑&#65292;顏值相當能打&#12290; 5.🔒 安全與注意事項 軟體支持 Wind...
+</div>
+<a class='snippet-fade r-snippet-fade hidden' href='https://quano-blog.blogspot.com/2026/11/idm-20mb-rayburst.html'></a>
+</div>
+<div class='jump-link flat-button ripple'>
+<a href='https://quano-blog.blogspot.com/2026/11/idm-20mb-rayburst.html' title='還在用收費的 IDM？這款開源免費、體積僅 20MB 的下載神器——Rayburst 絕對不容錯過！'>
+閱讀完整內容
+</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<aside class='sidebar-container container quano-right-sidebar' role='complementary'>
+<div class='navigation'>
+<button class='svg-icon-24-button flat-icon-button ripple sidebar-back'>
+<svg class='svg-icon-24'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_arrow_back_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+</button>
+</div>
+<div class='quano-about-card'>
+<div class='quano-channel-avatar'><img alt='夸諾頻道頭像' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXmwiYxCfQm65rp99q4B51ByAcv3yqwISJyuS6QXxbwpT_X9sW7bXoM9UjKMnpmKuY6A7nqaXBiFjF86QvcRKC4w7s5-EVy-tgPITpZc9zGgn9SGoxh9dIF5ar11zz13iVY-fIW9BsGenv31D6cViHPSIL9eIFeI_W4V8prtdkaTTDTA/s1600/favicon.png'/></div>
+<h3>📺 關於夸諾</h3>
+<p>哈囉&#65281;我是夸諾&#12290;本頻道專注於分享各類高效率開源軟體&#12289;實用工具及技術乾貨&#65292;帶你解鎖更多科技新玩法&#65281;</p>
+<a class='quano-channel-button' href='https://youtube.com/@quanoclass?si=ry2x9HNsD3BKMXff' rel='noopener noreferrer' target='_blank'>
+<svg aria-hidden='true' class='youtube-icon' focusable='false' viewBox='0 0 24 17'>
+<rect fill='currentColor' height='17' rx='4' width='24' x='0' y='0'></rect>
+<path d='M10 4.2L16 8.5L10 12.8Z' fill='#ff0000'></path>
+</svg>
+<span>訂閱 YouTube 頻道</span>
+</a>
+</div>
+<div class='sidebar_top_wrapper no-items'>
+<div class='sidebar_top no-items section' id='sidebar_top' name='側欄 (頂端)'>
+</div>
+</div>
+<div class='sidebar_bottom section' id='sidebar_bottom' name='側欄 (底部)'><div class='widget BlogArchive' data-version='2' id='BlogArchive1'>
+<details class='collapsible extendable'>
+<summary>
+<div class='collapsible-title'>
+<h3 class='title'>
+封存
+</h3>
+<svg class='svg-icon-24 chevron-down'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_expand_more_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<svg class='svg-icon-24 chevron-up'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_expand_less_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+</div>
+</summary>
+<div class='widget-content'>
+<div id='ArchiveList'>
+<div id='BlogArchive1_ArchiveList'>
+<div class='first-items'>
+<ul class='flat'>
+<li class='archivedate'>
+<a href='https://quano-blog.blogspot.com/2026/11/'>11月 2026<span class='post-count'>4</span></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</details>
+</div><div class='widget Label' data-version='2' id='Label1'>
+<details class='collapsible extendable'>
+<summary>
+<div class='collapsible-title'>
+<h3 class='title'>
+標籤
+</h3>
+<svg class='svg-icon-24 chevron-down'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_expand_more_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+<svg class='svg-icon-24 chevron-up'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_expand_less_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+</div>
+</summary>
+<div class='widget-content list-label-widget-content'>
+<div class='first-items'>
+<ul>
+<li><a class='label-name' href='https://quano-blog.blogspot.com/search/label/%F0%9F%92%BB%0A%0A%E5%AF%A6%E7%94%A8%E5%B7%A5%E5%85%B7'>💻
+
+實用工具</a></li>
+<li><a class='label-name' href='https://quano-blog.blogspot.com/search/label/%F0%9F%9B%A0%EF%B8%8F%20%E9%96%8B%E6%BA%90%E5%B0%88%E6%A1%88%E5%88%86%E4%BA%AB'>🛠&#65039; 開源專案分享</a></li>
+</ul>
+</div>
+</div>
+</details>
+</div></div>
+</aside>
+</div>
+<div class='quano-footer-ad'><span>&#65288;底部贊助廣告位&#65289;</span></div>
+<footer class='footer section' id='footer' name='頁尾'><div class='widget ReportAbuse' data-version='2' id='ReportAbuse1'>
+<h3 class='title'>
+<a class='report_abuse' href='https://www.blogger.com/go/report-abuse' rel='noopener nofollow' target='_blank'>
+檢舉濫用情形
+</a>
+</h3>
+<div class='quano-copyright'>&#169; 2026 夸诺博客. All Rights Reserved.</div>
+</div><div class='widget Attribution' data-version='2' id='Attribution1'>
+<div class='widget-content'>
+<div class='blogger'>
+<a href='https://www.blogger.com' rel='nofollow'>
+<svg class='svg-icon-24'>
+<use xlink:href='/responsive/sprite_v1_6.css.svg#ic_post_blogger_black_24dp' xmlns:xlink='http://www.w3.org/1999/xlink'></use>
+</svg>
+技術提供&#65306;Blogger
+</a>
+</div>
+</div>
+</div></footer>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="https://resources.blogblog.com/blogblog/data/res/3365112474-indie_compiled.js" async="true"></script>
+<script type='text/javascript'><![CDATA[
+(function () {
+  'use strict';
+
+  var pager = document.getElementById('blog-pager');
+  if (document.body.classList.contains('item-view')) return;
+
+  // Place the existing pager after the complete Blog1 widget.
+  // Homepage and label/archive pages use the same Blog1 post list.
+  // Any residual FeaturedPost widget is hidden by CSS; keep the pager after Blog1.
+  function placePagerAfterBlogList() {
+    var currentPager = document.getElementById('blog-pager');
+    var pageBody = document.getElementById('page_body');
+    if (!currentPager || !pageBody) return false;
+
+    var blogWidget = document.getElementById('Blog1') || pageBody.querySelector('.widget.Blog');
+    if (!blogWidget || !pageBody.contains(blogWidget) || !blogWidget.parentNode) return false;
+
+    var destination = blogWidget.parentNode;
+    if (blogWidget.nextElementSibling !== currentPager) {
+      destination.insertBefore(currentPager, blogWidget.nextSibling);
+    }
+    return true;
+  }
+
+  // Run now, after DOM ready, after page resources, and once after Blogger's
+  // async theme script has initialized. The operation is idempotent.
+  placePagerAfterBlogList();
+  document.addEventListener('DOMContentLoaded', placePagerAfterBlogList);
+  window.addEventListener('load', placePagerAfterBlogList);
+  window.setTimeout(placePagerAfterBlogList, 250);
+  window.setTimeout(placePagerAfterBlogList, 1000);
+
+  var locationUrl = new URL(window.location.href);
+  var pathname = locationUrl.pathname || '/';
+  var searchParams = locationUrl.searchParams;
+  var isLabelPage = pathname.indexOf('/search/label/') === 0;
+  var isSearchPage = pathname === '/search' && searchParams.has('q');
+  var isHomePage = pathname === '/' || pathname === '/index.html' || (pathname === '/search' && !searchParams.has('q'));
+
+  // Card-wide navigation is provided by the stretched title-link CSS.
+  // The comment and read-more links remain above that hit area.
+
+  if (!pager) return;
+
+  // Blogger's public post feed supports start-index. We use it to fetch only
+  // the date boundaries needed by the visible page numbers, not to crawl pages.
+  if (!isHomePage && !isLabelPage && !isSearchPage) return;
+
+  function readCurrentPage() {
+    var match = String(window.location.hash || '').match(/(?:PageNo=|page)(\d+)/i);
+    var value = match ? parseInt(match[1], 10) : 1;
+    return Number.isFinite(value) && value > 0 ? value : 1;
+  }
+
+  function countVisiblePosts() {
+    var selectors = [
+      '#Blog1 .blog-posts .post-outer-container',
+      '#Blog1 .blog-posts .post-outer',
+      '#Blog1 .blog-posts .post'
+    ];
+    for (var i = 0; i < selectors.length; i++) {
+      var count = document.querySelectorAll(selectors[i]).length;
+      if (count) return count;
+    }
+    return 0;
+  }
+
+  var perPageFromUrl = parseInt(searchParams.get('max-results') || '', 10);
+  var perPage = Number.isFinite(perPageFromUrl) && perPageFromUrl > 0
+    ? perPageFromUrl
+    : (countVisiblePosts() || 6);
+  var currentPage = readCurrentPage();
+
+  function makeLink(label, href, extraClass, ariaLabel) {
+    var a = document.createElement('a');
+    a.className = 'quano-pager-link' + (extraClass ? ' ' + extraClass : '');
+    a.href = href;
+    a.textContent = label;
+    if (ariaLabel) a.setAttribute('aria-label', ariaLabel);
+    return a;
+  }
+
+  function makeDisabled(label) {
+    var span = document.createElement('span');
+    span.className = 'quano-pager-link is-disabled';
+    span.textContent = label;
+    return span;
+  }
+
+  function addEllipsis(parent) {
+    var span = document.createElement('span');
+    span.className = 'quano-pager-ellipsis';
+    span.textContent = '…';
+    parent.appendChild(span);
+  }
+
+  function getPageNumbers(total, current) {
+    if (total <= 7) {
+      return Array.from({ length: total }, function (_, index) { return index + 1; });
+    }
+
+    var start = Math.max(1, current - 3);
+    var end = Math.min(total, start + 4);
+    start = Math.max(1, end - 4);
+
+    var result = [];
+    if (start > 1) result.push(1);
+    if (start > 2) result.push('…');
+    for (var page = start; page <= end; page++) result.push(page);
+    if (end < total - 1) result.push('…');
+    if (end < total) result.push(total);
+    return result;
+  }
+
+  function buildFeedUrl() {
+    var feedPath = '/feeds/posts/summary';
+    if (isLabelPage) {
+      var labelPath = pathname.substring('/search/label/'.length).replace(/\/$/, '');
+      var labelParts = labelPath.split('/').filter(Boolean).map(function (part) {
+        try { return encodeURIComponent(decodeURIComponent(part)); }
+        catch (e) { return encodeURIComponent(part); }
+      });
+      feedPath += '/-/' + labelParts.join('/');
+    }
+
+    var feedUrl = new URL(feedPath, window.location.origin);
+    if (isSearchPage) feedUrl.searchParams.set('q', searchParams.get('q') || '');
+    feedUrl.searchParams.set('alt', 'json');
+    feedUrl.searchParams.set('orderby', 'starttime');
+    return feedUrl;
+  }
+
+  var feedBase = buildFeedUrl();
+
+  async function fetchFeedSlice(startIndex, maxResults) {
+    var requestUrl = new URL(feedBase.href);
+    requestUrl.searchParams.set('start-index', String(Math.max(1, startIndex)));
+    requestUrl.searchParams.set('max-results', String(Math.max(1, maxResults)));
+
+    var response = await fetch(requestUrl.href, {
+      credentials: 'same-origin',
+      cache: 'force-cache'
+    });
+    if (!response.ok) throw new Error('Blogger feed request failed: ' + response.status);
+
+    var data = await response.json();
+    var feed = data && data.feed;
+    if (!feed) throw new Error('Unexpected Blogger feed response');
+
+    var total = parseInt(feed['openSearch$totalResults'] && feed['openSearch$totalResults'].$t, 10);
+    var actualStart = parseInt(feed['openSearch$startIndex'] && feed['openSearch$startIndex'].$t, 10);
+    return {
+      total: Number.isFinite(total) ? total : 0,
+      startIndex: Number.isFinite(actualStart) && actualStart > 0 ? actualStart : Math.max(1, startIndex),
+      entries: Array.isArray(feed.entry) ? feed.entry : []
+    };
+  }
+
+  function getPublished(entry) {
+    return entry && entry.published && entry.published.$t ? entry.published.$t : '';
+  }
+
+  function makeBasePageUrl() {
+    var base = new URL(window.location.href);
+    base.searchParams.delete('updated-max');
+    base.searchParams.delete('max-results');
+    base.searchParams.delete('m');
+    base.hash = '';
+    if (isHomePage && base.pathname === '/search') base.pathname = '/';
+    return base;
+  }
+
+  var basePageUrl = makeBasePageUrl();
+
+  function addPageNumber(url, pageNumber) {
+    var result = new URL(url, window.location.origin);
+    if (pageNumber > 1) {
+      result.searchParams.set('max-results', String(perPage));
+    } else {
+      result.searchParams.delete('max-results');
+    }
+    result.hash = 'PageNo=' + pageNumber;
+    return result.href;
+  }
+
+  function makeTargetUrl(pageNumber, publishedDate) {
+    if (pageNumber === 1) return addPageNumber(basePageUrl.href, 1);
+    if (!publishedDate) return null;
+
+    var target = new URL(basePageUrl.href);
+    target.searchParams.set('updated-max', publishedDate);
+    target.searchParams.set('max-results', String(perPage));
+    target.hash = 'PageNo=' + pageNumber;
+    return target.href;
+  }
+
+  function appendPageNumberToNativeUrl(href, pageNumber) {
+    return addPageNumber(href, pageNumber);
+  }
+
+  function getNativeNavigationLinks() {
+    var links = pager.querySelectorAll('a');
+    var result = { previous: null, next: null };
+    for (var i = 0; i < links.length; i++) {
+      var label = (links[i].textContent || '').trim();
+      if (label === '上一頁') result.previous = links[i].href;
+      if (label === '下一頁') result.next = links[i].href;
+    }
+    return result;
+  }
+
+  function tagNativeLinksForFallback() {
+    var links = pager.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      var label = (links[i].textContent || '').trim();
+      if (label === '上一頁' && currentPage > 1) {
+        links[i].href = appendPageNumberToNativeUrl(links[i].href, currentPage - 1);
+      } else if (label === '下一頁') {
+        links[i].href = appendPageNumberToNativeUrl(links[i].href, currentPage + 1);
+      }
+    }
+  }
+
+  function renderPager(totalPages, pageNumber, urlMap, nativeLinks) {
+    var nav = document.getElementById('blog-pager');
+    if (!nav) return;
+
+    nav.setAttribute('aria-label', '文章分頁');
+    nav.replaceChildren();
+
+    nav.appendChild(pageNumber > 1 && nativeLinks.previous
+      ? makeLink('上一頁', appendPageNumberToNativeUrl(nativeLinks.previous, pageNumber - 1), 'quano-pager-prev', '上一頁')
+      : makeDisabled('上一頁'));
+
+    var visible = getPageNumbers(totalPages, pageNumber);
+    visible.forEach(function (item) {
+      if (item === '…') {
+        addEllipsis(nav);
+        return;
+      }
+
+      if (item === pageNumber) {
+        var current = document.createElement('span');
+        current.className = 'quano-pager-link quano-pager-number is-current';
+        current.setAttribute('aria-current', 'page');
+        current.textContent = String(item);
+        nav.appendChild(current);
+        return;
+      }
+
+      var href = urlMap[item];
+      if (!href) {
+        // If Blogger does not return a usable feed boundary, avoid creating
+        // a misleading link. Native previous/next navigation remains available.
+        nav.appendChild(makeDisabled(String(item)));
+        return;
+      }
+      nav.appendChild(makeLink(String(item), href, 'quano-pager-number'));
+    });
+
+    nav.appendChild(pageNumber < totalPages && nativeLinks.next
+      ? makeLink('下一頁', appendPageNumberToNativeUrl(nativeLinks.next, pageNumber + 1), 'quano-pager-next', '下一頁')
+      : makeDisabled('下一頁'));
+  }
+
+  async function renderFromFeed() {
+    var nativeLinks = getNativeNavigationLinks();
+    var firstWindowPage = Math.max(2, currentPage - 2);
+    var firstBoundaryIndex = (firstWindowPage - 1) * perPage;
+    var slice = await fetchFeedSlice(firstBoundaryIndex, Math.min(35, perPage * 5));
+    var totalPages = Math.max(1, Math.ceil(slice.total / perPage));
+    var safeCurrentPage = Math.min(currentPage, totalPages);
+
+    // Use one feed slice for the nearby numbers. If the last-page boundary is
+    // outside that slice, retrieve only that single boundary entry.
+    var entryByIndex = Object.create(null);
+    slice.entries.forEach(function (entry, index) {
+      entryByIndex[slice.startIndex + index] = entry;
+    });
+
+    var visible = getPageNumbers(totalPages, safeCurrentPage);
+    var requiredPages = visible.filter(function (item) {
+      return typeof item === 'number' && item > 1 && item !== safeCurrentPage;
+    });
+    var missingPages = requiredPages.filter(function (page) {
+      return !entryByIndex[(page - 1) * perPage];
+    });
+
+    await Promise.all(missingPages.map(async function (page) {
+      var boundaryIndex = (page - 1) * perPage;
+      var one = await fetchFeedSlice(boundaryIndex, 1);
+      if (one.entries.length) entryByIndex[boundaryIndex] = one.entries[0];
+    }));
+
+    var urlMap = Object.create(null);
+    urlMap[1] = addPageNumber(basePageUrl.href, 1);
+
+    requiredPages.forEach(function (page) {
+      var entry = entryByIndex[(page - 1) * perPage];
+      var publishedDate = getPublished(entry);
+      var url = makeTargetUrl(page, publishedDate);
+      if (url) urlMap[page] = url;
+    });
+
+    renderPager(totalPages, safeCurrentPage, urlMap, nativeLinks);
+  }
+
+  // Keep the current page indicator and native navigation usable even if
+  // the public feed is temporarily unavailable.
+  var staticCurrent = pager.querySelector('.is-current');
+  if (staticCurrent) staticCurrent.textContent = String(currentPage);
+  tagNativeLinksForFallback();
+
+  renderFromFeed().catch(function (error) {
+    // Deliberately fall back to Blogger's native pager without scanning pages.
+    if (window.console && console.warn) console.warn('Quano pager fallback:', error);
+  });
+})();
+    ]]></script>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/648255196-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AKZvMztoX-Yo3F2sP-jF-7d__pz0:1793853824063';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d462586399848290336','//quano-blog.blogspot.com/2026/11/github-pages.html','462586399848290336');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '462586399848290336', 'title': '\u5938\u8bfa\u535a\u5ba2 - \u8edf\u9ad4\u958b\u6e90\u8207\u5c08\u6848\u4e0b\u8f09\u5206\u4eab\u4e2d\u5fc3', 'url': 'https://quano-blog.blogspot.com/2026/11/github-pages.html', 'canonicalUrl': 'https://quano-blog.blogspot.com/2026/11/github-pages.html', 'homepageUrl': 'https://quano-blog.blogspot.com/', 'searchUrl': 'https://quano-blog.blogspot.com/search', 'canonicalHomepageUrl': 'https://quano-blog.blogspot.com/', 'blogspotFaviconUrl': 'https://quano-blog.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'zh-TW', 'localeUnderscoreDelimited': 'zh_tw', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22\u5938\u8bfa\u535a\u5ba2 - \u8edf\u9ad4\u958b\u6e90\u8207\u5c08\u6848\u4e0b\u8f09\u5206\u4eab\u4e2d\u5fc3 - Atom\x22 href\x3d\x22https://quano-blog.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22\u5938\u8bfa\u535a\u5ba2 - \u8edf\u9ad4\u958b\u6e90\u8207\u5c08\u6848\u4e0b\u8f09\u5206\u4eab\u4e2d\u5fc3 - RSS\x22 href\x3d\x22https://quano-blog.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22\u5938\u8bfa\u535a\u5ba2 - \u8edf\u9ad4\u958b\u6e90\u8207\u5c08\u6848\u4e0b\u8f09\u5206\u4eab\u4e2d\u5fc3 - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/462586399848290336/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22\u5938\u8bfa\u535a\u5ba2 - \u8edf\u9ad4\u958b\u6e90\u8207\u5c08\u6848\u4e0b\u8f09\u5206\u4eab\u4e2d\u5fc3 - Atom\x22 href\x3d\x22https://quano-blog.blogspot.com/feeds/8829513603298570785/comments/default\x22 /\x3e\n', 'meTag': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/81fe04f737c01f87', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': '\u53d6\u5f97\u9023\u7d50', 'key': 'link', 'shareMessage': '\u53d6\u5f97\u9023\u7d50', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': '\u5206\u4eab\u5230 Facebook', 'target': 'facebook'}, {'name': 'BlogThis\uff01', 'key': 'blogThis', 'shareMessage': 'BlogThis\uff01', 'target': 'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': '\u5206\u4eab\u5230 X', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': '\u5206\u4eab\u5230 Pinterest', 'target': 'pinterest'}, {'name': '\u4ee5\u96fb\u5b50\u90f5\u4ef6\u50b3\u9001', 'key': 'email', 'shareMessage': '\u4ee5\u96fb\u5b50\u90f5\u4ef6\u50b3\u9001', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27zh_TW\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': '\u95b1\u8b80\u5b8c\u6574\u5167\u5bb9', 'pageType': 'item', 'postId': '8829513603298570785', 'postImageThumbnailUrl': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/s72-w571-c-h321/githubpages.png', 'postImageUrl': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/w571-h321/githubpages.png', 'pageName': '\u96f6\u6210\u672c\u67b6\u7ad9\u8853\uff1a\u624b\u628a\u624b\u6559\u4f60\u7528 GitHub Pages \u90e8\u7f72\u500b\u4eba\u514d\u8cbb\u90e8\u843d\u683c\u7db2\u7ad9', 'pageTitle': '\u5938\u8bfa\u535a\u5ba2 - \u8edf\u9ad4\u958b\u6e90\u8207\u5c08\u6848\u4e0b\u8f09\u5206\u4eab\u4e2d\u5fc3: \u96f6\u6210\u672c\u67b6\u7ad9\u8853\uff1a\u624b\u628a\u624b\u6559\u4f60\u7528 GitHub Pages \u90e8\u7f72\u500b\u4eba\u514d\u8cbb\u90e8\u843d\u683c\u7db2\u7ad9'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': '\u7de8\u8f2f', 'linkCopiedToClipboard': '\u5df2\u5c07\u9023\u7d50\u8907\u88fd\u5230\u526a\u8cbc\u7c3f\uff01', 'ok': '\u78ba\u5b9a', 'postLink': '\u6587\u7ae0\u9023\u7d50'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': '\u81ea\u8a02', 'isResponsive': true, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': '\u96f6\u6210\u672c\u67b6\u7ad9\u8853\uff1a\u624b\u628a\u624b\u6559\u4f60\u7528 GitHub Pages \u90e8\u7f72\u500b\u4eba\u514d\u8cbb\u90e8\u843d\u683c\u7db2\u7ad9', 'description': '\xa0\u4f5c\u8005\uff1a\u5938\u8afe \xb7 \u5206\u985e\uff1a\u5be6\u7528\u5de5\u5177 \u60f3\u8981\u64c1\u6709\u4e00\u500b\u5c6c\u65bc\u81ea\u5df1\u7684 \u500b\u4eba\u7db2\u7ad9 \u6216 \u6280\u8853\u90e8\u843d\u683c \uff0c\u537b\u53c8 \u4e0d\u60f3\u82b1\u9322\u8cb7\u7db2\u57df\u548c\u4e3b\u6a5f \u55ce\uff1f\u4eca\u5929\u9019\u7bc7\u6559\u7a0b\u8981\u4f86\u6559\u5927\u5bb6\u5982\u4f55\u5229\u7528 GitHub Pages \uff0c\u8f15\u9b06\u6253\u9020 \u5b8c\u5168\u514d\u8cbb\u3001\u9ad8\u6548\u4e14\u6c38\u7e8c\u904b\u4f5c \u7684 \u500b\u4eba\u975c\u614b\u90e8\u843d\u683c\uff01 \u4e00\u3001 \u4ec0\u9ebc\u662f GitHub Pages \uff1f ...', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/w571-h321/githubpages.png', 'url': 'https://quano-blog.blogspot.com/2026/11/github-pages.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 8829513603298570785}}, {'name': 'widgets', 'data': [{'title': '\u641c\u5c0b\u6b64\u7db2\u8a8c', 'type': 'BlogSearch', 'sectionId': 'search_top', 'id': 'BlogSearch1'}, {'title': '\u5938\u8bfa\u535a\u5ba2 - \u8edf\u9ad4\u958b\u6e90\u8207\u5c08\u6848\u4e0b\u8f09\u5206\u4eab\u4e2d\u5fc3 (\u6a19\u982d)', 'type': 'Header', 'sectionId': 'header', 'id': 'Header1'}, {'title': '\u6a19\u7c64', 'type': 'Label', 'sectionId': 'quano_categories', 'id': 'Label2'}, {'title': '\u7db2\u8a8c\u6587\u7ae0', 'type': 'Blog', 'sectionId': 'page_body', 'id': 'Blog1', 'posts': [{'id': '8829513603298570785', 'title': '\u96f6\u6210\u672c\u67b6\u7ad9\u8853\uff1a\u624b\u628a\u624b\u6559\u4f60\u7528 GitHub Pages \u90e8\u7f72\u500b\u4eba\u514d\u8cbb\u90e8\u843d\u683c\u7db2\u7ad9', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPDAeQ0R0Ncq3Hzp-J39Cz5XoCLHL-f9ZRc1JRn5stMaFX0u_UpdxVufd91SJrzy9yIiyWkdVNSe1LlCSOXflf01jT0taPTLekwIjRp5arq_MAFcAv0pIUdbFGpGog87HkexlLFo0uttSp38hRSpPxrvrBEhYu5eP4T6__tDGxNXu0QsqDkJMIkA-s5leh/w571-h321/githubpages.png', 'showInlineAds': false}], 'headerByline': {'regionName': 'header1', 'items': [{'name': 'share', 'label': ''}, {'name': 'timestamp', 'label': ''}]}, 'footerBylines': [{'regionName': 'footer1', 'items': [{'name': 'comments', 'label': '\u610f\u898b'}, {'name': 'icons', 'label': ''}]}, {'regionName': 'footer2', 'items': [{'name': 'labels', 'label': ''}]}, {'regionName': 'footer3', 'items': [{'name': 'location', 'label': '\u4f4d\u7f6e\uff1a'}]}], 'allBylineItems': [{'name': 'share', 'label': ''}, {'name': 'timestamp', 'label': ''}, {'name': 'comments', 'label': '\u610f\u898b'}, {'name': 'icons', 'label': ''}, {'name': 'labels', 'label': ''}, {'name': 'location', 'label': '\u4f4d\u7f6e\uff1a'}]}, {'title': '', 'type': 'PopularPosts', 'sectionId': 'page_body', 'id': 'PopularPosts1', 'posts': [{'title': '\u544a\u5225\u5783\u573e\u4fe1\u606f\uff01Telegram \u5fc5\u5099\u8cc7\u6e90\u641c\u7d22\u795e\u5668\uff1a\u6781\u641c Bot \u6df1\u5ea6\u89e3\u6790', 'id': 6218597829825216953}, {'title': '\u96f6\u6210\u672c\u67b6\u7ad9\u8853\uff1a\u624b\u628a\u624b\u6559\u4f60\u7528 GitHub Pages \u90e8\u7f72\u500b\u4eba\u514d\u8cbb\u90e8\u843d\u683c\u7db2\u7ad9', 'id': 8829513603298570785}, {'title': '\u9084\u5728\u7528\u6536\u8cbb\u7684 IDM\uff1f\u9019\u6b3e\u958b\u6e90\u514d\u8cbb\u3001\u9ad4\u7a4d\u50c5 20MB \u7684\u4e0b\u8f09\u795e\u5668\u2014\u2014Rayburst \u7d55\u5c0d\u4e0d\u5bb9\u932f\u904e\uff01', 'id': 7881729412556994445}]}, {'title': '', 'type': 'FeaturedPost', 'sectionId': 'page_body', 'id': 'FeaturedPost1', 'postId': '8829513603298570785'}, {'title': '', 'type': 'BlogArchive', 'sectionId': 'sidebar_bottom', 'id': 'BlogArchive1'}, {'title': '\u6a19\u7c64', 'type': 'Label', 'sectionId': 'sidebar_bottom', 'id': 'Label1'}, {'title': '', 'type': 'ReportAbuse', 'sectionId': 'footer', 'id': 'ReportAbuse1'}, {'type': 'Attribution', 'sectionId': 'footer', 'id': 'Attribution1'}]}]);
+_WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'search_top', document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label2', 'quano_categories', document.getElementById('Label2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'page_body', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/149285772-lbx__zh_tw.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/828616780-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts1', 'page_body', document.getElementById('PopularPosts1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FeaturedPostView', new _WidgetInfo('FeaturedPost1', 'page_body', document.getElementById('FeaturedPost1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar_bottom', document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': '\u8f09\u5165\u4e2d\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar_bottom', document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ReportAbuseView', new _WidgetInfo('ReportAbuse1', 'footer', document.getElementById('ReportAbuse1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer', document.getElementById('Attribution1'), {}, 'displayModeFull'));
+</script>
+</body>
+</html>
